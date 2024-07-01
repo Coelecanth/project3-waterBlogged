@@ -1,0 +1,22 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fsihing data</title>
+  </head>
+  <body>
+    {% for task in tasks %}
+    {{ task.first }}<br>
+    {{ task.comments }}<br>
+    {{ task.conditions }}<br>
+    {{ task.date }}<br>
+    {{ task.species1 }}<br>
+    {{ task.species2 }}<br>
+    {{ task.species3 }}<br>
+    {{ task.water_temperature  }}<br>
+
+    {% endfor %}
+    
+  </body>
+  </html>
