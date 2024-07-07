@@ -17,9 +17,9 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo= PyMongo(app)
 
 @app.route("/")
-@app.route("/get_fishingData")
-def get_FishingData():
-    tasks = mongo.db.tasks.find()
+@app.route("/get_fdata")
+def get_fdata():
+    tasks = mongo.db.fdata.find()
     return render_template("tasks.html", tasks=tasks)
 
 
