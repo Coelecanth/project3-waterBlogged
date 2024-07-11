@@ -3,15 +3,16 @@
 
     <h2>I'm extending the base template!</h2>
     
-    {% for data in fdata %}
-    {{ fdata.fd_venue }}<br>
-    {{ fdata.fd_date }}<br>
-    {{ fdata.fd_name }}<br>
-    {{ fdata.fd_conditions }}<br>
-    {{ fdata.fd_wtemp }}<br>
-    {{ fdata.fd_geoloc }}<br>
-    {{ fdata.fd_lure-fly }}<br>
-    {{ fdata.fd_comment }}<br>
+    {% for task in tasks %}
+    {{ task.fd_venue }}<br>
+    {{ task.fd_date }}<br>
+    {{ task.fd_name }}<br>
+    {{ task.fd_conditions }}<br>
+    {{ task.fd_wtemp }}<br>
+    {{ task.fd_geoloc }}<br>
+    {{ task.fd_lurefly }}<br>
+    {{ task.fd_comment }}<br>
+    {{ task.fd_fish }}<br>
 
     {% endfor %}
     
