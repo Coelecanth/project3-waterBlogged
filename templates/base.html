@@ -4,17 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+         <!-- favourite icon -->
+    <link rel="shortcut icon" href="static/img/fish-fins-solid.svg" type="image/x-icon">
     {% block styles %}
     <!-- custom CSS place holder  -->
     {% endblock %}
 
-    <title>Fishing Data</title>
+    <title>Water Blogged</title>
 </head>
 
 <body>
@@ -22,7 +25,7 @@
         <!-- side bar element -->
         <nav class="nav-extended text-shadow teal lighten-1">
             <div class="nav-wrapper">
-                <a href="{{ url_for('get_fdata') }}" class="brand-logo">WaterbLogged</a>
+                <a href="{{ url_for('get_fdata') }}" class="brand-logo">Water Blogged</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_fdata') }}">Home</a></li>
@@ -30,7 +33,7 @@
                     <li><a href="#">New Entry</a></li>
                     <li><a href="#">Manage Fishing Categories</a></li>
                     <li><a href="#">Log Out</a></li>
-                    <li><a href="#">Log In</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
                     <li><a href="{{ url_for('register') }}">Register</a></li>
                 </ul>
             </div>
@@ -45,7 +48,7 @@
             <li><a href="#">New Entry</a></li>
             <li><a href="#">Manage Fishing Categories</a></li>
             <li><a href="#">Log Out</a></li>
-            <li><a href="#">Log In</a></li>
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
 
