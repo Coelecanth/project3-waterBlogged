@@ -36,6 +36,8 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
+         # insert password checks here   
+
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
@@ -85,6 +87,19 @@ def profile(username):
         {"username": session["user"]})["username"]
     return render_template("profile.html", username=username)
     # second username is the defined above, first is expected param
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for("login"))
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user") 
+    # similar to JS POP to remove just his cookie
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
