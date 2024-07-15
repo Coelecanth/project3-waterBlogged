@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-        type="text/css">
+    
+    <!-- Materiase - Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <!-- favourite icon -->
     <link rel="shortcut icon" href="static/img/fish-fins-solid.svg" type="image/x-icon">
@@ -27,6 +29,7 @@
             <div class="nav-wrapper">
                 <a href="{{ url_for('get_fdata') }}" class="brand-logo">Water Blogged</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_fdata') }}">Home</a></li>
                 {% if session.user %}
@@ -43,6 +46,7 @@
         </nav>
         <!-- mobile navbar -->
         <ul class="sidenav" id="mobile-demo">
+            <li><h4 class="center-align light-blue-text text-darken 4">Water Blogged</h4></li>
             <li><a href="{{ url_for('get_fdata') }}">Home</a></li>
             {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
@@ -78,7 +82,10 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+   
     <script src="{{ url_for('static', filename='js/js_script.js') }}"></script>
 
     {% block scripts %}
