@@ -1,37 +1,60 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2>I'm extending the base template!</h2>
-    
-    {% for task in tasks %}
-    {{ task.fd_venue }}<br>
-    {{ task.fd_date }}<br>
-    {{ task.fd_name }}<br>
-    {{ task.fd_conditions }}<br>
-    {{ task.fd_wtemp }}<br>
-    {{ task.fd_geoloc }}<br>
-    {{ task.fd_lurefly }}<br>
-    {{ task.fd_comment }}<br>
-    {{ task.fd_fish }}<br>
-    {{ task.fd_public }}<br>
 
-    {% endfor %}
- 
+{% for task in tasks %}
 <ul class="collapsible">
     <li>
-      <div class="collapsible-header white-text teal lighten-1 text-shadow"><i class="fas fa-caret-down"></i>First</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+
+        <div class="collapsible-header white-text text-shadow teal lighten-1"><strong>Venue: {{ task.fd_venue
+                }}</strong>
+            {% if task.fd_rate == "3" %}
+            <i class="fas fa-exclamation-circle light-green-text text-lighten-2 tooltipped" data-position="right"
+                data-tooltip="GOOD SESSION"></i>
+            {% elif task.fd_rate == "2" %}
+                <i class="fas fa-exclamation-circle yellow-text text-lighten-2 tooltipped"
+                data-position="right" data-tooltip="AVERAGE SESSION"></i>
+            {% elif task.fd_rate == "1" %}
+                <i class="fas fa-exclamation-circle red-text text-text-lighten-2 tooltipped"
+                data-position="right" data-tooltip="BAD SESSION"></i>
+            {% else %}
+                <i class="fas fa-exclamation-circle blue-text text-lighten-2 tooltipped" data-position="right"
+                data-tooltip="NOT RATED"></i>
+            {% endif %}
+        </div>
+        <div class="collapsible-body">
+            <span>Date: {{ task.fd_date }}</span>
+            <hr>
+            <span>Weather: {{ task.fd_conditions }}</span>
+            <hr>
+            <span>Water temp: {{ task.fd_wtemp }}</span>
+        </div>
     </li>
     <li>
-      <div class="collapsible-header white-text teal lighten-1 text-shadow"><i class="fas fa-caret-down"></i>Second</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        <div class="collapsible-header white-text text-shadow teal lighten-1"><strong>Catch report</strong></div>
+        <div class="collapsible-body">
+            <span>Fish caught: {{ task.fd_fish }}</span>
+            <hr>
+            <span>What did I catch with: {{ task.fd_lurefly }}</span>
+
+        </div>
     </li>
     <li>
-      <div class="collapsible-header white-text teal lighten-1 text-shadow"><i class="fas fa-caret-down"></i>Third</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        <div class="collapsible-header white-text text-shadow teal lighten-1"><strong>Location/Comment</strong></div>
+        <div class="collapsible-body">
+            <span>comments: <br>
+                {{ task.fd_comment }}
+            </span>
+            <hr>
+            <span>Location :<br>
+                {{ task.fd_geoloc }}
+            </span>
+        </div>
     </li>
-  </ul>
-  
-    
+</ul>
+{% endfor %}
+
+
+
 
 {% endblock %}
