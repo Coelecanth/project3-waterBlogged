@@ -23,30 +23,30 @@
             {% endif %}
         </div>
         <div class="collapsible-body">
-            <span>Date: {{ task.fd_date }}</span>
+            <span><strong>Date: </strong>{{ task.fd_date }}</span>
             <hr>
-            <span>Weather: {{ task.fd_conditions }}</span>
+            <span><strong>Weather:</strong> {{ task.fd_conditions }}</span>
             <hr>
-            <span>Water temp: {{ task.fd_wtemp }}</span>
+            <span><strong>Water temp:</strong> {{ task.fd_wtemp }}</span>
         </div>
     </li>
     <li>
         <div class="collapsible-header white-text text-shadow teal lighten-1"><strong>Catch report</strong></div>
         <div class="collapsible-body">
-            <span>Fish caught: {{ task.fd_fish }}</span>
+            <span><strong>Fish caught:</strong> {{ task.fd_fish }}</span>
             <hr>
-            <span>What did I catch with: {{ task.fd_lurefly }}</span>
+            <span><strong>Caught with:</strong> {{ task.fd_lurefly }}</span>
 
         </div>
     </li>
     <li>
         <div class="collapsible-header white-text text-shadow teal lighten-1"><strong>Location/Comment</strong></div>
         <div class="collapsible-body">
-            <span>comments: <br>
+            <span><strong>Comments:</strong> <br>
                 {{ task.fd_comment }}
             </span>
             <hr>
-            <span>Location :<br>
+            <span><strong>Location :</strong><br>
                 {{ task.fd_geoloc }}
             </span>
         </div>
