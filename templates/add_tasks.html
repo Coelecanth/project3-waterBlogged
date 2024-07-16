@@ -3,22 +3,41 @@
 
 <h3 class="light-blue-text text-darken-4 center-align">Add A Fishing Session</h3>
 
-<div class="row card-panel grey lighten-1">
+<div class="row card-panel">
     <form class="col s12" method="POST" action="">
+        <!-- user name field input -->
+         <!-- repalce with user name from session -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix ight-blue-text text-darken-4"></i>
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
                 <input id="fd_name" name="fd_name" minlength="5" maxlength="50" type="text" class="validate" required>
                 <label for="fd_name">User name</label>
             </div>
         </div>
+                <!-- Fishing Venue type seelction  -->
+        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix ight-blue-text text-darken-4"></i>
+                <select id="cat_name" name="cat_name" class="validate" required>
+                    <option value="" disabled selected>Choose your Location type</option>
+                    {% for categories in categories %}
+                            <option value="{{ categories.cat_name }}">{{ categories.cat_name }}</option>
+                    {% endfor %}
+                </select>
+                <label>Select Location type</label>
+            </div>
+        </div>
+        <!-- Fishing Venue field input -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
                 <input id="fd_venue" name="fd_venue" minlength="5" maxlength="50" type="text" class="validate" required>
                 <label for="fd_venue">Fishing Venue</label>
             </div>
         </div>
+        
+        <!-- water temp field input -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
@@ -26,6 +45,7 @@
                 <label for="fd_wtemp">Water Temp.</label>
             </div>
         </div>
+        <!-- fis caught field input -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
@@ -34,6 +54,7 @@
                 <label for="fd_fish">Fish caught</label>
             </div>
         </div>
+        <!-- Lure/fly field input -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
@@ -42,6 +63,7 @@
                 <label for="fd_lurefly">Lure/Fly used</label>
             </div>
         </div>
+        <!-- condition field input -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
@@ -50,7 +72,8 @@
                 <label for="fd_conditions">Conditions</label>
             </div>
         </div>
-
+        
+        <!-- date picker  -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
@@ -58,6 +81,7 @@
                 <label for="fd_date">Date of Session</label>
             </div>
         </div>
+        <!-- comment text field  -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
@@ -66,6 +90,7 @@
                 <label for="fd_comment">comment</label>
             </div>
         </div>
+        <!-- make public switcher -->
         <div class="row">
             <div class="input-field col s12">
                 <div class="switch">
