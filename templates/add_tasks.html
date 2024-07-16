@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="light-blue-text text-darken-4 center-align">Add A Fishing Session</h3>
+
+<div class="row card-panel grey lighten-1">
+    <form class="col s12" method="POST" action="">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix ight-blue-text text-darken-4"></i>
+                <input id="fd_name" name="fd_name" minlength="5" maxlength="50" type="text" class="validate" required>
+                <label for="fd_name">User name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix ight-blue-text text-darken-4"></i>
+                <input id="fd_venue" name="fd_venue" minlength="5" maxlength="50" type="text" class="validate" required>
+                <label for="fd_venue">Fishing Venue</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="fd_wtemp" name="fd_wtemp" minlength="2" maxlength="10" type="text" class="validate" required>
+                <label for="fd_wtemp">Water Temp.</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                <textarea id="fd_fish" name="fd_fish" minlength="5" maxlength="100"
+                    class="materialize-textarea validate" required></textarea>
+                <label for="fd_fish">Fish caught</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="fd_lurefly" name="fd_lurefly" minlength="5" maxlength="50" type="text" class="validate"
+                    required>
+                <label for="fd_lurefly">Lure/Fly used</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="fd_conditions" name="fd_conditions" minlength="5" maxlength="50" type="text" class="validate"
+                    required>
+                <label for="fd_conditions">Conditions</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
+                <input id="fd_date" name="fd_date" type="text" class="datepicker validate" required>
+                <label for="fd_date">Date of Session</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                <textarea id="fd_comment" name="fd_comment" minlength="5" maxlength="200"
+                    class="materialize-textarea validate" required></textarea>
+                <label for="fd_comment">comment</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+                    <label for="fd_public">
+                        <input type="checkbox" id="fd_public" name="fd_public">
+                        <span class="lever"></span>
+                        Make public?
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+
+{% endblock %}

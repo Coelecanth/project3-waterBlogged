@@ -93,6 +93,7 @@ def profile(username):
 
     return redirect(url_for("login"))
 
+
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -100,6 +101,11 @@ def logout():
     session.pop("user") 
     # similar to JS POP to remove just his cookie
     return redirect(url_for("login"))
+
+
+@app.route("/add_task")
+def add_task():
+    return render_template("add_tasks.html")
 
 
 if __name__ == "__main__":
