@@ -6,7 +6,7 @@
 <ul class="collapsible">
     <li>
 
-        <div class="collapsible-header white-text text-shadow teal lighten-1"><strong>Venue: {{ task.fd_venue
+        <div class="collapsible-header task-header white-text text-shadow teal lighten-1"><strong>Venue: {{ task.fd_venue
                 }}</strong>
             {% if task.fd_rate == "3" %}
             <i class="fas fa-exclamation-circle light-green-text text-lighten-2 tooltipped" data-position="right"
@@ -23,6 +23,8 @@
             {% endif %}
         </div>
         <div class="collapsible-body">
+            <span><strong>Created by: </strong>{{ task.fd_created_by }}</span>
+            <hr>
             <span><strong>Date: </strong>{{ task.fd_date }}</span>
             <hr>
             <span><strong>Weather:</strong> {{ task.fd_conditions }}</span>

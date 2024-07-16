@@ -103,8 +103,27 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_task")
+@app.route("/add_task", methods=["GET", "POST"])
 def add_task():
+    if request.method == "POST":
+        fd_public = "on" if request.form.get("fd_public") else "off"
+        task = {
+            "fd_wtemp": request.form.get("fd_wtemp"),
+            "cat_name": request.form.get("cat_name"),
+            "fd_venue": request.form.get("fd_venue"),
+            "fd_public": fd_public,
+            "fd_date": request.form.get("fd_date"),
+            "fd_created_by": session["user"],
+            "fd_conditions": request.form.get("fd_conditions"),
+            "fd_lurefly": request.form.get("fd_lurefly"),
+            "fd_comment": request.form.get("fd_comment"),
+            "fd_rate": request.form.get("fd_rate"),
+            "fd_fish": request.form.get("fd_fish")
+        }
+        mongo.db.fdata.insert_one(task)
+        flash("Task Successfully Added")
+        return redirect(url_for("get_fdata"))
+
     categories = mongo.db.categories.find().sort("cat-name", 1)
     return render_template("add_tasks.html", categories=categories)
 

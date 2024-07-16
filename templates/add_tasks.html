@@ -1,28 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Add A Fishing Session</h3>
+<h3 class="light-blue-text text-darken-4 center-align">Add a Fishing Session</h3>
 
 <div class="row card-panel">
-    <form class="col s12" method="POST" action="">
-        <!-- user name field input -->
-         <!-- repalce with user name from session -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="fd_name" name="fd_name" minlength="5" maxlength="50" type="text" class="validate" required>
-                <label for="fd_name">User name</label>
-            </div>
-        </div>
-                <!-- Fishing Venue type seelction  -->
-        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+    <form class="col s12" method="POST" action="{{ url_for('add_task') }}">
+        <!-- Fishing Venue type seelction  -->
+        <i class="fas fa-solid fa-mountain prefix light-blue-text text-darken-4"></i>
 
         <div class="row">
             <div class="input-field col s12">
                 <select id="cat_name" name="cat_name" class="validate" required>
                     <option value="" disabled selected>Choose your Location type</option>
                     {% for categories in categories %}
-                            <option value="{{ categories.cat_name }}">{{ categories.cat_name }}</option>
+                    <option value="{{ categories.cat_name }}">{{ categories.cat_name }}</option>
                     {% endfor %}
                 </select>
                 <label>Select Location type</label>
@@ -31,16 +22,16 @@
         <!-- Fishing Venue field input -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <i class="fas fa-solid fa-location-dot prefix light-blue-text text-darken-4"></i>
                 <input id="fd_venue" name="fd_venue" minlength="5" maxlength="50" type="text" class="validate" required>
                 <label for="fd_venue">Fishing Venue</label>
             </div>
         </div>
-        
+
         <!-- water temp field input -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <i class="fas fa-solid fa-temperature-three-quarters prefix light-blue-text text-darken-4"></i>
                 <input id="fd_wtemp" name="fd_wtemp" minlength="2" maxlength="10" type="text" class="validate" required>
                 <label for="fd_wtemp">Water Temp.</label>
             </div>
@@ -48,7 +39,7 @@
         <!-- fis caught field input -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                <i class="fas fa-solid fa-fish-fins prefix light-blue-text text-darken-4"></i>
                 <textarea id="fd_fish" name="fd_fish" minlength="5" maxlength="100"
                     class="materialize-textarea validate" required></textarea>
                 <label for="fd_fish">Fish caught</label>
@@ -66,13 +57,13 @@
         <!-- condition field input -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <i class="fas fa-solid fa-cloud prefix light-blue-text text-darken-4"></i>
                 <input id="fd_conditions" name="fd_conditions" minlength="5" maxlength="50" type="text" class="validate"
                     required>
                 <label for="fd_conditions">Conditions</label>
             </div>
         </div>
-        
+
         <!-- date picker  -->
         <div class="row">
             <div class="input-field col s12">
@@ -87,10 +78,10 @@
                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                 <textarea id="fd_comment" name="fd_comment" minlength="5" maxlength="200"
                     class="materialize-textarea validate" required></textarea>
-                <label for="fd_comment">comment</label>
+                <label for="fd_comment">Notes section</label>
             </div>
         </div>
-        <!-- make public switcher -->
+        <!-- make public switcher/toggle -->
         <div class="row">
             <div class="input-field col s12">
                 <div class="switch">
@@ -103,7 +94,14 @@
                 </div>
             </div>
         </div>
-
+        <!-- submit button for sessions-->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                    Add Session <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
 
     </form>
 </div>
