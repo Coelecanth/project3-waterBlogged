@@ -11,19 +11,23 @@
         <div class="row">
             <div class="input-field col s12">
                 <select id="cat_name" name="cat_name" class="validate" required>
-                    <option value="" disabled selected>Choose your Location type</option>
-                    {% for categories in categories %}
-                    <option value="{{ categories.cat_name }}">{{ categories.cat_name }}</option>
-                    {% endfor %}
+                    <option value="" disabled>Choose Type</option>
+                    {% for category in categories %}
+                    {% if category.cat_name == task.cat_name %}
+                        <option value="{{ category.cat_name }}" selected>{{ category.cat_name }}</option>
+                    {% else %}
+                        <option value="{{ category.cat_name }}">{{ category.cat_name }}</option>
+                    {% endif %}
+                {% endfor %}
                 </select>
-                <label>Select Location type</label>
+                <label for="cat_name">Select Location Type</label>
             </div>
         </div>
         <!-- Fishing Venue field input -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-solid fa-location-dot prefix light-blue-text text-darken-4"></i>
-                <input id="fd_venue" name="fd_venue" minlength="5" maxlength="50" type="text" class="validate" required>
+                <input id="fd_venue" name="fd_venue" minlength="5" maxlength="50" value="{{ task.fd_venue }}" type="text" class="validate" required>
                 <label for="fd_venue">Fishing Venue</label>
             </div>
         </div>
@@ -32,7 +36,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-solid fa-temperature-three-quarters prefix light-blue-text text-darken-4"></i>
-                <input id="fd_wtemp" name="fd_wtemp" minlength="2" maxlength="10" type="text" class="validate" required>
+                <input id="fd_wtemp" name="fd_wtemp" minlength="2" maxlength="10" value="{{ task.fd_wtemp }}" type="text" class="validate" required>
                 <label for="fd_wtemp">Water Temp.</label>
             </div>
         </div>
@@ -40,7 +44,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-solid fa-fish-fins prefix light-blue-text text-darken-4"></i>
-                <input id="fd_fish" name="fd_fish" minlength="2" maxlength="100" type="text" class="validate" required>
+                <input id="fd_fish" name="fd_fish" minlength="2" maxlength="100" value="{{ task.fd_fish }}" type="text" class="validate" required>
                 <label for="fd_fish">Fish caught</label>
             </div>
         </div>
@@ -48,7 +52,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-solid fa-mosquito prefix light-blue-text text-darken-4"></i>
-                <input id="fd_lurefly" name="fd_lurefly" minlength="5" maxlength="50" type="text" class="validate"
+                <input id="fd_lurefly" name="fd_lurefly" minlength="5" maxlength="50" value="{{ task.fd_lurefly }}" type="text" class="validate"
                     required>
                 <label for="fd_lurefly">Lure/Fly used</label>
             </div>
@@ -57,7 +61,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-solid fa-cloud prefix light-blue-text text-darken-4"></i>
-                <input id="fd_conditions" name="fd_conditions" minlength="5" maxlength="50" type="text" class="validate"
+                <input id="fd_conditions" name="fd_conditions" minlength="5" maxlength="50" value="{{ task.fd_conditions }}" type="text" class="validate"
                     required>
                 <label for="fd_conditions">Conditions</label>
             </div>
@@ -67,7 +71,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
-                <input id="fd_date" name="fd_date" type="text" class="datepicker validate" required>
+                <input id="fd_date" name="fd_date" value="{{ task.fd_date }}" type="text" class="datepicker validate" required>
                 <label for="fd_date">Date of Session</label>
             </div>
         </div>
@@ -75,8 +79,11 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                <!-- the" - "in the jinja statement removes whitespace-->
                 <textarea id="fd_comment" name="fd_comment" minlength="5" maxlength="200"
-                    class="materialize-textarea validate" required></textarea>
+                    class="materialize-textarea validate" required>
+                    
+                </textarea>
                 <label for="fd_comment">Notes section</label>
             </div>
         </div>
@@ -86,8 +93,12 @@
                 <div class="switch">
                     <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
                     <label for="fd_public">
+                        {% if task.fd_public == "on" %}
+                        <input type="checkbox" id="fd_public" name="fd_public" checked>
+                    {% else %}
                         <input type="checkbox" id="fd_public" name="fd_public">
-                        <span class="lever"></span>
+                    {% endif %}
+                    <span class="lever"></span>
                         Make public?
                     </label>
                 </div>

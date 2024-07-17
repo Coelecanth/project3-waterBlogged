@@ -99,7 +99,7 @@ def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user") 
-    # similar to JS POP to remove just his cookie
+    # similar to JS POP to remove just this cookie
     return redirect(url_for("login"))
 
 
@@ -130,6 +130,25 @@ def add_task():
 
 @app.route("/edit_task/<fdata_id>", methods=["GET", "POST"])
 def edit_task(fdata_id):
+    if request.method == "POST":
+        # fd_public = "on" if request.form.get("fd_public") else "off"
+        submit = {
+            "fd_wtemp": request.form.get("fd_wtemp"),
+            "cat_name": request.form.get("cat_name"),
+            "fd_venue": request.form.get("fd_venue"),
+            "fd_public": fd_public,
+            "fd_date": request.form.get("fd_date"),
+            "fd_created_by": session["user"],
+            "fd_conditions": request.form.get("fd_conditions"),
+            "fd_lurefly": request.form.get("fd_lurefly"),
+            "fd_comment": request.form.get("fd_comment"),
+            "fd_rate": request.form.get("fd_rate"),
+            "fd_fish": request.form.get("fd_fish")
+        }
+        mongo.db.fdata.update({"_id": ObjectId(fdata_id)}, submit)
+        flash("Task Successfully Updated")
+
+
     task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
     categories = mongo.db.categories.find().sort("cat_name", 1)
     return render_template("edit_task.html", task=task, categories=categories)
