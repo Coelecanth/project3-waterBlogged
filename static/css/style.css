@@ -11,4 +11,10 @@
 
 .task-header {
     font-size: 1.5em;
+    margin: 1px;
+    line-height: 42px;
+}
+
+.btn-small {
+    margin: 8px
 }
