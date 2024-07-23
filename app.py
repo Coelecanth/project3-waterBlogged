@@ -118,7 +118,8 @@ def add_task():
             "fd_lurefly": request.form.get("fd_lurefly"),
             "fd_comment": request.form.get("fd_comment"),
             "fd_rate": request.form.get("fd_rate"),
-            "fd_fish": request.form.get("fd_fish")
+            "fd_fish": request.form.get("fd_fish"),
+            "fd_geoloc": request.form.get("fd_geoloc")
         }
         mongo.db.fdata.insert_one(task)
         flash("Task Successfully Added")
@@ -143,9 +144,10 @@ def edit_task(fdata_id):
             "fd_lurefly": request.form.get("fd_lurefly"),
             "fd_comment": request.form.get("fd_comment"),
             "fd_rate": request.form.get("fd_rate"),
-            "fd_fish": request.form.get("fd_fish")
+            "fd_fish": request.form.get("fd_fish"),
+            "fd_geoloc": request.form.get("fd_geoloc")
         }
-        mongo.db.fdata.update({"_id": ObjectId(fdata_id)}, submit)
+        mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)}, {"$set": submit})
         flash("Task Successfully Updated")
 
 

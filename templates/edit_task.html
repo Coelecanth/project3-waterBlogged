@@ -87,6 +87,14 @@
                 <label for="fd_comment">Notes section</label>
             </div>
         </div>
+        <!-- map location  -->
+        <div class="row">
+            <div class="input-field col s12">
+                Your Fishing Location
+                <div id="map"></div>
+                <input type="hidden" name="fd_geoloc" id="fd_geoloc" value="{{ task.fd_geoloc }}">
+            </div>
+        </div>
         <!-- make public switcher/toggle -->
         <div class="row">
             <div class="input-field col s12">
@@ -116,4 +124,42 @@
     </form>
 </div>
 
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        // Convert the task.fd_geoloc string into an array of numbers
+        var geoloc = "{{ task.fd_geoloc }}".split(',').map(Number);
+
+        // Initialize the map with the latitude and longitude values
+        let map = L.map('map').setView(geoloc, 10);
+
+        L.tileLayer("http://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+            attribution: "Powered by <a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Esri</a>"
+        }).addTo(map);
+
+        // Initialize the marker with the latitude and longitude values and make it draggable
+        let marker = L.marker(geoloc, {draggable: true}).addTo(map);
+
+        // Update the hidden input field with the coordinates when the marker is dragged
+        marker.on("dragend", function(e) {
+            updateCoords(marker.getLatLng().lat, marker.getLatLng().lng, map.getZoom());
+        });
+
+        // Update the marker position and coordinates when the map is clicked
+        map.on("click", function(e) {
+            marker.setLatLng(e.latlng);
+            updateCoords(marker.getLatLng().lat, marker.getLatLng().lng, map.getZoom());
+        });
+
+        // Function to update the hidden input field with the latitude and longitude values
+        function updateCoords(lat, lng, zoom) {
+            document.getElementById("fd_geoloc").value = lat.toFixed(5) + ", " + lng.toFixed(5);
+            zoom = zoom < 10 ? 10 : zoom;
+            map.flyTo([lat, lng], zoom);
+        }
+    });
+</script>
 {% endblock %}

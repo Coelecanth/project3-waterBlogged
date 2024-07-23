@@ -14,24 +14,24 @@
                 <a href="{{ url_for('edit_task', fdata_id=task._id) }}" class="btn-small light-blue lighten-1">Edit </a>
             </div>
             <div class="col s9">
-            <strong>Venue: {{ task.fd_venue }}</strong>
-            {% if task.fd_rate == "3" %}
-            <i class="fas fa-exclamation-circle light-green-text text-lighten-2 tooltipped" data-position="right"
-                data-tooltip="GOOD SESSION"></i>
-            {% elif task.fd_rate == "2" %}
-            <i class="fas fa-exclamation-circle yellow-text text-lighten-2 tooltipped" data-position="right"
-                data-tooltip="AVERAGE SESSION"></i>
-            {% elif task.fd_rate == "1" %}
-            <i class="fas fa-exclamation-circle red-text text-text-lighten-2 tooltipped" data-position="right"
-                data-tooltip="BAD SESSION"></i>
-            {% else %}
-            <i class="fas fa-exclamation-circle blue-text text-lighten-2 tooltipped" data-position="right"
-                data-tooltip="NOT RATED"></i>
-            {% endif %}
-            </div>    
+                <strong>Venue: {{ task.fd_venue }}</strong>
+                {% if task.fd_rate == "3" %}
+                <i class="fas fa-exclamation-circle light-green-text text-lighten-2 tooltipped" data-position="right"
+                    data-tooltip="GOOD SESSION"></i>
+                {% elif task.fd_rate == "2" %}
+                <i class="fas fa-exclamation-circle yellow-text text-lighten-2 tooltipped" data-position="right"
+                    data-tooltip="AVERAGE SESSION"></i>
+                {% elif task.fd_rate == "1" %}
+                <i class="fas fa-exclamation-circle red-text text-text-lighten-2 tooltipped" data-position="right"
+                    data-tooltip="BAD SESSION"></i>
+                {% else %}
+                <i class="fas fa-exclamation-circle blue-text text-lighten-2 tooltipped" data-position="right"
+                    data-tooltip="NOT RATED"></i>
+                {% endif %}
+            </div>
         </div>
-            
-       
+
+
 
         <div class="collapsible-body">
             <span><strong>Created by: </strong>{{ task.fd_created_by }}</span>
@@ -60,14 +60,56 @@
             </span>
             <hr>
             <span><strong>Location :</strong><br>
-                {{ task.fd_geoloc }}
+                <a class="waves-effect waves-light btn modal-trigger" data-venue="{{ task.fd_venue }}" data-location="{{ task.fd_geoloc }}" href="#map-modal">View Map</a>
             </span>
         </div>
     </li>
 </ul>
+
+<!-- Map Modal -->
+<div id="map-modal" class="modal">
+    <div class="modal-content">
+        <h4>Fish Session Map</h4>
+        <div id="map"></div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn">Close</a>
+    </div>
+</div>
 {% endfor %}
 
+{% endblock %}
 
 
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $('.modal').modal({
+            onOpenEnd: function (modal, trigger) {
+                // Initialize the map when the modal is fully opened
+                setTimeout(function () {
+                    var mapContainer = $('#map');
+                    var mapVenue = $(trigger).data("venue");
+                    var mapLoc = $(trigger).data("location").split(',').map(Number);
+                    if (!mapContainer.data('map')) {
+                        var map = L.map('map').setView(mapLoc, 10);
 
+                        L.tileLayer("http://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+                            attribution: "Powered by <a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Esri</a>"
+                        }).addTo(map);
+
+                        L.marker(mapLoc).addTo(map).bindPopup(mapVenue).openPopup();
+
+                        mapContainer.data('map', map); // Store map instance in data attribute
+                    } else {
+                        var map = mapContainer.data('map');
+                        map.setView(mapLoc, 10); // Update the map center
+                        L.marker(mapLoc).addTo(map).bindPopup(mapVenue).openPopup();
+                        map.invalidateSize(); // Resize the map if it was already initialized
+                    }
+                }, 50);
+            }
+        });
+    });
+</script>
 {% endblock %}

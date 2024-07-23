@@ -179,14 +179,13 @@ Example:
 - As a returning site user, I would like to be able to select whether my entries are public or private (e.g. so that only I can see them or all users can see them, at both time of creation or later update).
 - As a returning site user, I would like to be able to see all entries I have created 
 - As a returning site user, I would like to be able to see all entries that are public 
-- As a returning site user, I would like to be able to see all entries I have created
-- As a returning site user, I would like to record the following elements in the site,
-- Venue name I visited and the topography eg river lake, sea, etc
-- The conditions, weather, water temperature etc.
-- The fish caught and the flies used to catch them.
-- Have notes section where I can add my own comments and also place links to any Images I may wish link to this session eg host my own photographs.
-- Link a geo location so I can show where this venue is, making it easier for readers of public session to find it, (or even to remember for myself) 
-- Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries I created.
+- As a returning site user, I would like to record new sessions with the following elements in the site,
+  - Venue name I visited and the topography eg river lake, sea, etc
+  - The conditions, weather, water temperature etc.
+  - The fish caught and the flies used to catch them.
+  - Have notes section where I can add my own comments and also place links to any Images I may wish link to this session eg host my own photographs.
+  - Link a geo location so I can show where this venue is, making it easier for readers of public session to find it, (or even to remember for myself) 
+  - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries I created.
 - As a returning site user, I would like to be able to edit the records I have created for the  following elements  of each session recorded,
     - Venue name I visited and the topography eg river lake, sea, etc
     - The conditions, weather, water temperature etc.

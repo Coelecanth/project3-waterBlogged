@@ -1,6 +1,9 @@
+/* jshint esversion: 11, jquery: true */
+
 /*     jQuery for MaterializeCSS initialization */
 
 $(document).ready(function () {
+  $('.modal').modal();
   $(".sidenav").sidenav({edge: "right"});
   $(".collapsible").collapsible();
   $(".tooltipped").tooltip();

@@ -80,6 +80,14 @@
                 <label for="fd_comment">Notes section</label>
             </div>
         </div>
+        <!-- map location  -->
+        <div class="row">
+            <div class="input-field col s12">
+                Select your Fishing Location
+                <div id="map"></div>
+                <input type="hidden" name="fd_geoloc" id="fd_geoloc">
+            </div>
+        </div>
         <!-- make public switcher/toggle -->
         <div class="row">
             <div class="input-field col s12">
@@ -96,7 +104,7 @@
         <!-- submit button for sessions-->
         <div class="row">
             <div class="col s12 center-align">
-                <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                <button type="submit" class="btn-large light-blue darken-1 text-shadow" id="submit-btn" disabled>
                     Add Session <i class="fas fa-plus-square right"></i>
                 </button>
             </div>
@@ -105,4 +113,44 @@
     </form>
 </div>
 
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        // require lat/lng fields prior to submission
+        function enableDisableSubmitBtn() {
+            if ($("#fd_geoloc").val() == "") {
+                $("#submit-btn").prop("disabled", true);
+            } else {
+                $("#submit-btn").prop("disabled", false);
+            }
+        }
+
+        let map = L.map('map').setView([0, 0], 2);
+
+        L.tileLayer("http://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+            attribution: "Powered by <a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Esri</a>"
+        }).addTo(map);
+
+        let marker = L.marker([0, 0], {draggable: true}).addTo(map);
+        // prefill lat/lng values on map-click or marker-drag
+        marker.on("dragend", function(e) {
+            updateCoords(marker.getLatLng().lat, marker.getLatLng().lng, map.getZoom());
+        });
+        map.on("click", function(e) {
+            marker.setLatLng(e.latlng);
+            updateCoords(marker.getLatLng().lat, marker.getLatLng().lng, map.getZoom());
+        });
+
+        function updateCoords(lat, lng, zoom) {
+            document.getElementById("fd_geoloc").value = marker.getLatLng().lat.toFixed(5) + ", " + marker.getLatLng().lng.toFixed(5);
+            zoom = zoom < 10 ? 10 : zoom;
+            map.flyTo([lat, lng], zoom);
+            enableDisableSubmitBtn();
+        }
+
+    });
+</script>
 {% endblock %}
