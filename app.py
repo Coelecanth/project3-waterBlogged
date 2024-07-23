@@ -131,7 +131,7 @@ def add_task():
 @app.route("/edit_task/<fdata_id>", methods=["GET", "POST"])
 def edit_task(fdata_id):
     if request.method == "POST":
-        # fd_public = "on" if request.form.get("fd_public") else "off"
+        fd_public = "on" if request.form.get("fd_public") else "off"
         submit = {
             "fd_wtemp": request.form.get("fd_wtemp"),
             "cat_name": request.form.get("cat_name"),
