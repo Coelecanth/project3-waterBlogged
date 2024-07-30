@@ -1,14 +1,28 @@
+/* colour paltette classes */
+.l-grey {
+    color: #BAC1B8;
+}
+.teal {
+    color: #58a4b0;
+}
+.green {
+    color:#0c7c59;
+} 
+.d-grey {
+    color: #2B303a;
+}
+.h-red {
+    color: #D64933;
+}  
+.black {
+    color: #000000;
+}
 
-/* 
-:root {
-    P = Primary | S = Secondary 
-    --l-grey: #BAC1B8;
-    --teal: #58a4b0;
-    --green: #0c7c59;
-    --d-grey: #2B303a;
-    --h-red: #D64933;
-    --black: #000000;
-} */
+/* backgrounf images colour */
+body {
+    background-color: #443627;
+}
+
 
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
