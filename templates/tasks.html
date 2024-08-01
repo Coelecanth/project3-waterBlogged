@@ -17,13 +17,13 @@
             </div>
             <div class="col s9">
                 <strong>Venue: {{ task.fd_venue }}</strong>
-                {% if task.fd_rate == "good" %}
+                {% if task.fd_rate|lower  == "good" %}
                 <i class="fas fa-exclamation-circle light-green-text text-lighten-2 tooltipped" data-position="right"
                     data-tooltip="GOOD SESSION"></i>
-                {% elif task.fd_rate == "average" %}
+                {% elif task.fd_rate|lower  == "average" %}
                 <i class="fas fa-exclamation-circle yellow-text text-lighten-2 tooltipped" data-position="right"
                     data-tooltip="AVERAGE SESSION"></i>
-                {% elif task.fd_rate == "bad" %}
+                {% elif task.fd_rate|lower  == "bad" %}
                 <i class="fas fa-exclamation-circle red-text text-text-lighten-2 tooltipped" data-position="right"
                     data-tooltip="BAD SESSION"></i>
                 {% else %}
