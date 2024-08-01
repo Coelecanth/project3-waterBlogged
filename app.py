@@ -118,7 +118,8 @@ def add_task():
             "fd_lurefly": request.form.get("fd_lurefly"),
             "fd_comment": request.form.get("fd_comment"),
             "fd_rate": request.form.get("fd_rate"),
-            "fd_fish": request.form.get("fd_fish")
+            "fd_fish": request.form.get("fd_fish"),
+            "fd_geoloc": request.form.get("fd_geoloc")
         }
         mongo.db.fdata.insert_one(task)
         flash("Task Successfully Added")
@@ -143,15 +144,29 @@ def edit_task(fdata_id):
             "fd_lurefly": request.form.get("fd_lurefly"),
             "fd_comment": request.form.get("fd_comment"),
             "fd_rate": request.form.get("fd_rate"),
-            "fd_fish": request.form.get("fd_fish")
+            "fd_fish": request.form.get("fd_fish"),
+            "fd_geoloc": request.form.get("fd_geoloc")
         }
-        mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)}, submit)
+        mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)}, {"$set": submit})
         flash("Task Successfully Updated")
 
 
     task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
     categories = mongo.db.categories.find().sort("cat_name", 1)
     return render_template("edit_task.html", task=task, categories=categories)
+
+
+@app.route("/delete_task/<fdata_id>")
+def delete_task(fdata_id):
+    mongo.db.fdata.delete_one({"_id": ObjectId(fdata_id)})
+    flash("Task Successfully Deleted")
+    return redirect(url_for("get_fdata"))
+
+
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find().sort("cat_name", 1))
+    return render_template("categories.html", categories=categories)
 
 
 if __name__ == "__main__":
