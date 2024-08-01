@@ -102,7 +102,7 @@ def logout():
     # similar to JS POP to remove just this cookie
     return redirect(url_for("login"))
 
-
+# create new record 
 @app.route("/add_task", methods=["GET", "POST"])
 def add_task():
     if request.method == "POST":
@@ -127,7 +127,7 @@ def add_task():
     categories = mongo.db.categories.find().sort("cat-name", 1)
     return render_template("add_tasks.html", categories=categories)
 
-
+# Update of cuurent record  
 @app.route("/edit_task/<fdata_id>", methods=["GET", "POST"])
 def edit_task(fdata_id):
     if request.method == "POST":
@@ -145,7 +145,7 @@ def edit_task(fdata_id):
             "fd_rate": request.form.get("fd_rate"),
             "fd_fish": request.form.get("fd_fish")
         }
-        mongo.db.fdata.update({"_id": ObjectId(fdata_id)}, submit)
+        mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)}, submit)
         flash("Task Successfully Updated")
 
 
