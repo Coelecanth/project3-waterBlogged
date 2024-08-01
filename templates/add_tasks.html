@@ -101,6 +101,16 @@
                 </div>
             </div>
         </div>
+        <!-- rating drop down list -->
+        <div class="input-field col s3">
+            <select name="fd_rate" id="fd_rate">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="good">Good</option>
+                <option value="average">Average</option>
+                <option value="bad">Bad</option>
+            </select>
+            <label for="fd_rate">Rate your Session</label>
+        </div>
         <!-- submit button for sessions-->
         <div class="row">
             <div class="col s12 center-align">
@@ -134,12 +144,12 @@
             attribution: "Powered by <a href='https://developers.arcgis.com/terms/attribution/' target='_blank' rel='noopener'>Esri</a>"
         }).addTo(map);
 
-        let marker = L.marker([0, 0], {draggable: true}).addTo(map);
+        let marker = L.marker([0, 0], { draggable: true }).addTo(map);
         // prefill lat/lng values on map-click or marker-drag
-        marker.on("dragend", function(e) {
+        marker.on("dragend", function (e) {
             updateCoords(marker.getLatLng().lat, marker.getLatLng().lng, map.getZoom());
         });
-        map.on("click", function(e) {
+        map.on("click", function (e) {
             marker.setLatLng(e.latlng);
             updateCoords(marker.getLatLng().lat, marker.getLatLng().lng, map.getZoom());
         });

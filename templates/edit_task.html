@@ -82,7 +82,7 @@
                 <!-- the" - "in the jinja statement removes whitespace-->
                 <textarea id="fd_comment" name="fd_comment" minlength="5" maxlength="200"
                     class="materialize-textarea validate" required>
-                    
+                    {{ task.fd_comment }}
                 </textarea>
                 <label for="fd_comment">Notes section</label>
             </div>
@@ -111,6 +111,17 @@
                     </label>
                 </div>
             </div>
+        </div>
+        <!-- rating drop down list -->
+        <div class="input-field col s3">
+            <select name="fd_rate" id="fd_rate" value="{{ task.fd_rate }}">
+                <option value="" >{{ task.fd_rate }}</option>
+
+                <option value="Good">Good</option>
+                <option value="Average">Average</option>
+                <option value="Bad">Bad</option>
+            </select>
+            <label for="fd_rate">Rate your Session</label>
         </div>
         <!-- submit button for sessions-->
         <div class="row">

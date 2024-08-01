@@ -27,28 +27,59 @@ def get_fdata():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if request.method == "POST":
-        # check if username already exists in fishingLog db
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+    if request.method == 'POST':
+        username = request.form.get('username').lower()
+        password = request.form.get('password')
+        confirm_password = request.form.get('password1')
 
-        if existing_user:
-            flash("Username already exists")
-            return redirect(url_for("register"))
+        if password == confirm_password:
+            existing_user = mongo.db.users.find_one({"username": username})
+            
+            if existing_user:
+                flash("Username already exists", 'error')
+                return redirect(url_for("register"))
+            
+            # Register the new user
+            hashed_password = generate_password_hash(password)
+            new_user = {
+                "username": username,
+                "password": hashed_password
+            }
+            mongo.db.users.insert_one(new_user)
 
-         # insert password checks here   
+            # Put the new user into 'session' cookie
+            session["user"] = username
+            flash("Registration Successful!", 'success')
+            return redirect(url_for("profile", username=username))
+        else:
+            flash('Passwords do not match!', 'error')
+    
+    return render_template('register.html')
+        
+    # if request.method == "POST":
+    #     # check if username already exists in db
+    #     existing_user = mongo.db.users.find_one(
+    #         {"username": request.form.get("username").lower()})
 
-        register = {
-            "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
-        }
-        mongo.db.users.insert_one(register)
+    #     if existing_user:
+    #         flash("Username already exists")
+    #         return redirect(url_for("register"))
 
-        # put the new user into 'session' 
-        session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))
-    return render_template("register.html")
+    #     register = {
+    #         "username": request.form.get("username").lower(),
+    #         "password": generate_password_hash(request.form.get("password"))
+    #     }
+    #     mongo.db.users.insert_one(register)
+
+    #     # put the new user into 'session' cookie
+    #     session["user"] = request.form.get("username").lower()
+    #     flash("Registration Successful!")
+    #     return redirect(url_for("profile", username=session["user"]))
+
+    # return render_template("register.html")
+   
+    
+
 
 
 @app.route("/login", methods=["GET", "POST"])
