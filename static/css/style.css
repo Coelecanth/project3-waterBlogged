@@ -3,7 +3,7 @@
     color: #BAC1B8;
 }
 .teal {
-    color: #58a4b0;
+    color: #00897b;
 }
 .green {
     color:#0c7c59;
@@ -18,10 +18,20 @@
     color: #000000;
 }
 
-/* backgrounf images colour 
+/* background: linear-gradient(0deg, rgba(186,193,184,0.08) 0%, rgba(186,193,184,0.08) 50%, rgba(186,193,184,0.08) 100%); */
 body {
-    background-color: #2B303a;
-} */
+    /*--apply background in case image does not load, with contrasting colour-----*/
+    background-color: #BAC1B8; 
+    background: url("/static/img/backdrop.avif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.nav-header{
+    margin-left: 25px;
+}
 
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
@@ -36,6 +46,13 @@ body {
     margin: 1px;
     line-height: 42px;
 }
+.dropdown-text {
+    font-size: 1.2em;
+    margin: 1px;
+    line-height: 32px;
+}
+
+
 
 .btn-small {
     margin: 8px
