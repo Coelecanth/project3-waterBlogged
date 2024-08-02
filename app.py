@@ -1,4 +1,5 @@
 import os
+from functools import wraps
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -24,7 +25,19 @@ def get_fdata():
     tasks = list(mongo.db.fdata.find())
     return render_template("tasks.html", tasks=tasks)
 
+# function to test if there is a suser logged - defensive programming
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        # no "user" in session
+        if "user" not in session:
+            flash("You must log in to view this page")
+            return redirect(url_for("login"))
+        # user is in session
+        return f(*args, **kwargs)
+    return decorated_function
 
+# function to register a user 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == 'POST':
@@ -41,9 +54,11 @@ def register():
             
             # Register the new user
             hashed_password = generate_password_hash(password)
+            
             new_user = {
                 "username": username,
-                "password": hashed_password
+                "password": hashed_password,
+                "is_superuser": False
             }
             mongo.db.users.insert_one(new_user)
 
@@ -87,20 +102,20 @@ def login():
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
+@login_required
 def profile(username):
-    # grab the user's username from db
+    # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
-    # second username is the defined above, first is expected param
 
     if session["user"]:
         return render_template("profile.html", username=username)
 
     return redirect(url_for("login"))
 
-
+ 
 @app.route("/logout")
+@login_required
 def logout():
     # remove user from session cookie
     flash("You have been logged out")
@@ -110,6 +125,7 @@ def logout():
 
 # create new record 
 @app.route("/add_task", methods=["GET", "POST"])
+@login_required
 def add_task():
     if request.method == "POST":
         fd_public = "on" if request.form.get("fd_public") else "off"
@@ -134,9 +150,11 @@ def add_task():
     categories = mongo.db.categories.find().sort("cat-name", 1)
     return render_template("add_tasks.html", categories=categories)
 
-# Update of cuurent record  
+# Update of current record of a user 
 @app.route("/edit_task/<fdata_id>", methods=["GET", "POST"])
+@login_required
 def edit_task(fdata_id):
+    task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
     if request.method == "POST":
         fd_public = "on" if request.form.get("fd_public") else "off"
         submit = {
@@ -163,6 +181,7 @@ def edit_task(fdata_id):
 
 
 @app.route("/delete_task/<fdata_id>")
+@login_required
 def delete_task(fdata_id):
     mongo.db.fdata.delete_one({"_id": ObjectId(fdata_id)})
     flash("Task Successfully Deleted")
@@ -170,12 +189,14 @@ def delete_task(fdata_id):
 
 
 @app.route("/get_categories")
+@login_required
 def get_categories():
     categories = list(mongo.db.categories.find().sort("cat_name", 1))
     return render_template("categories.html", categories=categories)
 
 
 @app.route("/add_category", methods=["GET", "POST"])
+@login_required
 def add_category():
     if request.method == "POST":
         category = {
@@ -189,6 +210,7 @@ def add_category():
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+@login_required
 def edit_category(category_id):
     if request.method == "POST":
         submit = {
@@ -203,10 +225,20 @@ def edit_category(category_id):
 
 
 @app.route("/delete_category/<category_id>")
+@login_required
 def delete_category(category_id):
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
+
+
+@app.route("/search", methods=["GET", "POST"])
+@login_required
+def search():
+    # find only the tasks the user has queried
+    query = request.form.get("query")
+    tasks = list(mongo.db.fdata.find({"$text": {"$search": query}}))
+    return render_template("tasks.html", tasks=tasks)
 
 
 if __name__ == "__main__":
