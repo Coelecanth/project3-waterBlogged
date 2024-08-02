@@ -37,6 +37,15 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+
+@app.route("/")
+@app.route("/get_tasks")
+def get_tasks():
+    # find all tasks
+    tasks = list(mongo.db.fdata.find())
+    return render_template("tasks.html", tasks=tasks)
+
+
 # function to register a user 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -155,29 +164,36 @@ def add_task():
 @login_required
 def edit_task(fdata_id):
     task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
-    if request.method == "POST":
-        fd_public = "on" if request.form.get("fd_public") else "off"
-        submit = {
-            "fd_wtemp": request.form.get("fd_wtemp"),
-            "cat_name": request.form.get("cat_name"),
-            "fd_venue": request.form.get("fd_venue"),
-            "fd_public": fd_public,
-            "fd_date": request.form.get("fd_date"),
-            "fd_created_by": session["user"],
-            "fd_conditions": request.form.get("fd_conditions"),
-            "fd_lurefly": request.form.get("fd_lurefly"),
-            "fd_comment": request.form.get("fd_comment"),
-            "fd_rate": request.form.get("fd_rate"),
-            "fd_fish": request.form.get("fd_fish"),
-            "fd_geoloc": request.form.get("fd_geoloc")
-        }
-        mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)}, {"$set": submit})
-        flash("Task Successfully Updated")
+    if session["user"].lower() == task["fd_created_by"].lower():
+        # the session["user"] must be the user who created this task
+
+        if request.method == "POST":
+            fd_public = "on" if request.form.get("fd_public") else "off"
+            submit = {
+                "fd_wtemp": request.form.get("fd_wtemp"),
+                "cat_name": request.form.get("fd_cat_name"),
+                "fd_venue": request.form.get("fd_venue"),
+                "fd_public": fd_public,
+                "fd_date": request.form.get("fd_date"),
+                "fd_created_by": session["user"],
+                "fd_conditions": request.form.get("fd_conditions"),
+                "fd_lurefly": request.form.get("fd_lurefly"),
+                "fd_comment": request.form.get("fd_comment"),
+                "fd_rate": request.form.get("fd_rate"),
+                "fd_fish": request.form.get("fd_fish"),
+                "fd_geoloc": request.form.get("fd_geoloc")
+            }
+            mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)}, {"$set": submit})
+            flash("Task Successfully Updated")
 
 
-    task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
-    categories = mongo.db.categories.find().sort("cat_name", 1)
-    return render_template("edit_task.html", task=task, categories=categories)
+        task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
+        categories = mongo.db.categories.find().sort("cat_name", 1)
+        return render_template("edit_task.html", task=task, categories=categories)
+    
+    # not the correct user to edit this task
+    flash("You don't have access to edit this task")
+    return redirect(url_for("get_tasks"))
 
 
 @app.route("/delete_task/<fdata_id>")
