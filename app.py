@@ -25,7 +25,8 @@ def get_fdata():
     tasks = list(mongo.db.fdata.find())
     return render_template("tasks.html", tasks=tasks)
 
-# function to test if there is a suser logged - defensive programming
+
+# function to test if there is a user logged - defensive programming
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -164,14 +165,14 @@ def add_task():
 @login_required
 def edit_task(fdata_id):
     task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
-    if session["user"].lower() == task["fd_created_by"].lower():
+    if session["user"].lower() == task["fd_created_by"].lower(): 
         # the session["user"] must be the user who created this task
 
         if request.method == "POST":
             fd_public = "on" if request.form.get("fd_public") else "off"
             submit = {
                 "fd_wtemp": request.form.get("fd_wtemp"),
-                "cat_name": request.form.get("fd_cat_name"),
+                "fd_cat_name": request.form.get("fd_cat_name"),
                 "fd_venue": request.form.get("fd_venue"),
                 "fd_public": fd_public,
                 "fd_date": request.form.get("fd_date"),

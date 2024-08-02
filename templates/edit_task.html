@@ -10,10 +10,10 @@
 
         <div class="row">
             <div class="input-field col s12">
-                <select id="cat_name" name="cat_name" class="validate" required>
+                <select id="fd_cat_name" name="fd_cat_name" class="validate" required>
                     <option value="" disabled>Choose Type</option>
                     {% for category in categories %}
-                    {% if category.cat_name == task.cat_name %}
+                    {% if category.cat_name == task.fd_cat_name %}
                         <option value="{{ category.cat_name }}" selected>{{ category.cat_name }}</option>
                     {% else %}
                         <option value="{{ category.cat_name }}">{{ category.cat_name }}</option>
