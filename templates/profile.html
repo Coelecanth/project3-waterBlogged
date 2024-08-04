@@ -7,14 +7,17 @@
     <div class="col s12 m8 offset-m2">
         <div class="card-panel">
             <h3 class="center-align light-blue text-darken-4"></h3>
-            <div class="task-header"> {{username}}'s Profile </div>
+            <div class="task-header"> {{username.capitalize() }}'s Profile </div>
             <br>
             <p>Logged on user name is {{username}}</p>
-            {% if session.user|lower == "admin"|lower %}
-            <p>You are a superuser!</p>
-            {% else %}
-            <p>You are not a superuser.</p>
-            {% endif %}
+                   
+                
+                    {% if session.user["is_superuser"] %}
+                        <p>You are a superuser!</p>
+                    {% else %}
+                        <p>You are not a superuser.</p>
+                    {% endif %}
+            
         </div>
     </div>
 </div>
