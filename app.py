@@ -47,6 +47,15 @@ def get_tasks():
     return render_template("tasks.html", tasks=tasks)
 
 
+@app.route("/search", methods=["GET", "POST"])
+@login_required
+def search():
+    # find only the tasks the user has queried
+    query = request.form.get("query")
+    tasks = list(mongo.db.fdata.find({"$text": {"$search": query}}))
+    return render_template("tasks.html", tasks=tasks)
+
+
 # function to register a user 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -68,7 +77,7 @@ def register():
             new_user = {
                 "username": username,
                 "password": hashed_password,
-                "is_admuser": True
+                "is_superuser": True
             }
             mongo.db.users.insert_one(new_user)
 
@@ -249,13 +258,7 @@ def delete_category(category_id):
     return redirect(url_for("get_categories"))
 
 
-@app.route("/search", methods=["GET", "POST"])
-@login_required
-def search():
-    # find only the tasks the user has queried
-    query = request.form.get("query")
-    tasks = list(mongo.db.fdata.find({"$text": {"$search": query}}))
-    return render_template("tasks.html", tasks=tasks)
+
 
 
 if __name__ == "__main__":
