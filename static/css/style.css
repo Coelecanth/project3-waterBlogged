@@ -14,9 +14,6 @@
 .d-grey {
     color: #2B303a;
 }
-.h-red {
-    color: #D64933;
-}  
 .black {
     color: #000000;
 }
@@ -55,14 +52,10 @@ body {
     margin: 1px;
     line-height: 32px;
 }
-
-
-
 .btn-small {
     margin: 8px
 }
-
 #map {
-    height: 25vh;
+    height: 35vh;
     width: 100%;
 }

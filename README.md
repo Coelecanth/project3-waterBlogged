@@ -1,4 +1,4 @@
-# [PROJECT3 WATERLOGGED](https://water-blogged-flask-app-0fb53df2979a.herokuapp.com)
+# [PROJECT3 WATERBLOGGED](https://water-blogged-flask-app-0fb53df2979a.herokuapp.com)
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/Coelecanth/project3-waterLogged)](https://github.com/Coelecanth/project3-waterLogged/commits/main)
 [![GitHub last commit](https://img.shields.io/github/last-commit/Coelecanth/project3-waterLogged)](https://github.com/Coelecanth/project3-waterLogged/commits/main)
@@ -82,52 +82,19 @@ In this section, you will briefly explain your design processes.
 
 ### Colour Scheme
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
+The colour scheme chosen was to provide a idyllic reflective colour scheme of the river or lake environment with greens and blues, and deeper shades represented by grey. 
+The colour scheme was refined and tuned in the [coolors.co](https://coolors.co/bac1b8-00897b-0c7c59-0d47a1-2b303a) web site and the link shows the colour scheme as seen from the website. 
 
-Explain your colours and the colour scheme.
+For completeness the colour scheme is shown below as an image 
+![](https://github/colour.jpg) 
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- `#000000` used for primary text.
-- `#E84610` used for primary highlights.
-- `#4A4A4F` used for secondary text.
-- `#009FE3` used for secondary highlights.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
-
-Consider adding a link and screenshot for your colour scheme using "coolors".
-https://coolors.co/generate
-
-When you add a colour to the palette, the URL is dynamically updated, making it easier for you to return back to your colour palette later if needed.
-
-Example:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-I used [coolors.co](https://coolors.co/e84610-009fe3-4a4a4f-445261-d63649-e6ecf0-000000) to generate my colour palette.
-
-![screenshot](documentation/coolors.png)
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
-
-⚠️ ONLY IF YOU ACTUALLY ADDED `:root` variables in CSS! ⚠️
-If you've used CSS `:root` variables, consider also including a code snippet here!
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-I've used CSS `:root` variables to easily update the global colour scheme by changing only one value, instead of everywhere in the CSS file.
-
-```css
-:root {
-    /* P = Primary | S = Secondary */
-    --p-text: #000000;
-    --p-highlight: #E84610;
-    --s-text: #4A4A4F;
-    --s-highlight: #009FE3;
-    --white: #FFFFFF;
-    --black: #000000;
-}
-```
+Where colours were referened in CSS not using Hex or RGBA the following abbreviated names were used. 
+- l-grey	#BAC1B8 (Ash Grey)
+- teal	#00897B (Dark Cyan)
+- green	#0C7C59 (Dark Spring Green)
+- blue	#0D47A1 (Cobalt Blue)
+- d-grey	#2B303A (Gun Metal)
+- black	#000000 (Black)
 
 ### Typography
 
