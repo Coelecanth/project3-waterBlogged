@@ -77,7 +77,7 @@ def register():
             new_user = {
                 "username": username,
                 "password": hashed_password,
-                "is_superuser": False
+                "is_superuser": "false"
             }
             mongo.db.users.insert_one(new_user)
 

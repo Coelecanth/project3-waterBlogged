@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Water Blogged Profile</h3>
+<h3 class="center-align">Water Blogged User Profile</h3>
 
 <div class="row">
     <div class="col s12 m8 offset-m2">
@@ -10,7 +10,7 @@
             <div class="task-header"> {{username.capitalize() }}'s Profile </div>
             <br>
             <p>Logged on user name is {{username}}</p>
-                {% if is_superuser %}
+                {% if is_superuser == "true" %}
                     <p>You are a superuser!</p>
                 {% else %}
                     <p>You are not a superuser.</p>
