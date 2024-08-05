@@ -21,7 +21,7 @@
 /* background: linear-gradient(0deg, rgba(186,193,184,0.08) 0%, rgba(186,193,184,0.08) 50%, rgba(186,193,184,0.08) 100%); */
 body {
     /*--apply background in case image does not load, with contrasting colour-----*/
-    background-color: #BAC1B8; 
+    background-color: #e0e0e0; 
     background: url("/static/img/backdrop.avif");
     background-position: center;
     background-repeat: no-repeat;
