@@ -77,7 +77,7 @@ def register():
             new_user = {
                 "username": username,
                 "password": hashed_password,
-                "is_superuser": True
+                "is_superuser": False
             }
             mongo.db.users.insert_one(new_user)
 
@@ -124,12 +124,11 @@ def login():
 @login_required
 def profile(username):
     # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    if session["user"]:
-        return render_template("profile.html", username=username)
-
+    user = mongo.db.users.find_one({"username": session["user"]})
+    
+    if user:
+        return render_template("profile.html", username=user["username"], is_superuser=user["is_superuser"])
+   
     return redirect(url_for("login"))
 
  
@@ -256,7 +255,6 @@ def delete_category(category_id):
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
-
 
 
 
