@@ -4,37 +4,17 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/Coelecanth/project3-waterLogged)](https://github.com/Coelecanth/project3-waterLogged/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/Coelecanth/project3-waterLogged)](https://github.com/Coelecanth/project3-waterLogged)
 
-My project idea was to create a journal for fly fisherman, who could then also use this as a blog site to share with people.  
+My project idea was to create a journal for fly fisherman, who could  use this as a blog site to share with people.  
 
-This was born out the research I did on this and there didn’t seem to be a site out there that could deliver on this dual need for participants of this sport, rather than replicating this in different sites locations, to perform both the journal and the blog.
+This was born out the research I did on this and there didn’t seem to be a site out there that could deliver this specifically for fly fishers.
 
-Essentially the idea was for the fly fisherman to be able to record there fishing sessions which could be a simple local visit or at the other end of the spectrum, a full expedition holiday. Where they could record most of the useful information on the place they visited, and decide whether to keep this as a journal, or publish as a blog post for there visit.
+Essentially the idea was for the fly fisherman to be able to record there fishing sessions which could be a simple local visit or at the other end of the spectrum, a full expedition holiday. Where they could record most of the useful information on the place they visited, and then sahre this with others.
 
 https://ui.dev/amiresponsive?url=https://water-blogged-flask-app-0fb53df2979a.herokuapp.com
 
-Note: Markdown files (.md) should not contain HTML elements like `img`, `br`, `div`, `a`, etc, only Markdown formatting.
 Find out more about using Markdown elements here:
 https://pandao.github.io/editor.md/en.html
 
-
-> [!NOTE]  
-> BLUE: Highlights information that users should take into account, even when skimming.
-
-> [!TIP]  
-> GREEN: Optional information to help a user be more successful.
-
-> [!IMPORTANT]  
-> PURPLE: Crucial information necessary for users to succeed.
-
-> [!WARNING]  
-> YELLOW: Critical content demanding immediate user attention due to potential risks.
-
-> [!CAUTION]  
-> RED: Negative potential consequences of an action.
-
-Source: https://github.com/orgs/community/discussions/16925
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ![screenshot](documentation/mockup.png)
 
@@ -50,19 +30,19 @@ In this section, you will briefly explain your design processes.
 
 ### Colour Scheme
 
-The colour scheme chosen was to provide a idyllic reflective colour scheme of the river or lake environment with greens and blues, and deeper shades represented by grey. 
+The colour scheme chosen was to provide a idyllic reflective colour scheme of the river or lake environment with greens and blues, and deeper shades represented by grey. As I was using Materliaze CSS framework, which has good functionality for colours. I decided to match my colour scheme, using the Materliase colour scheme, so where I couldnt use the materiilase framework i could call a css class.  
+
+- materialize grey lighten-2 - defined as class l-grey colour #e0e0e0
+- materialize teal darken-1 - defined as class teal colour #00897b
+- materialize teal darken-4 - defined as class green colour #004d40 
+- materialize grey lighten-2 - defined as class blue colour #0d47a1
+- materialize grey darken-2 - defined as class d-grey colour #616161 
+
 The colour scheme was refined and tuned in the [coolors.co](https://coolors.co/bac1b8-00897b-0c7c59-0d47a1-2b303a) web site and the link shows the colour scheme as seen from the website. 
 
 For completeness the colour scheme is shown below as an image 
 ![](/documentation/colour_pal.png) 
 
-Where colours were referened in CSS not using Hex or RGBA the following abbreviated names were used. 
-- l-grey	#BAC1B8 (Ash Grey)
-- teal	#00897B (Dark Cyan)
-- green	#0C7C59 (Dark Spring Green)
-- blue	#0D47A1 (Cobalt Blue)
-- d-grey	#2B303A (Gun Metal)
-- black	#000000 (Black)
 
 ### Typography
 
@@ -82,10 +62,6 @@ Example:
 
 - [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
-## User Stories
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
 ## User stories
 
 ### New Site Users
@@ -95,25 +71,31 @@ Example:
 - As a new site user, I would like to be able to see all entries I have created 
 - As a new site user, I would like to be able to see all entries that are public 
 - As a new site user, I would like to record the following elements in the site,
-    - Venue name I visited and the topography eg river lake, sea, etc
-    - The conditions, weather, water temperature etc.
-    - The fish caught and the flies used to catch them.
-    - Have a notes section where I can add my own comments and also place links to any Images I may wish link to this session eg host my own photographs.
-    - Link a geo location so I can show where this venue is, making it easier for readers of public session to find it, (or even to remember for myself) 
-    - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries I created.
+  - Venue name I visited and the topography eg river lake, sea, etc
+  - The conditions, weather, water temperature etc.
+  - The fish caught and the flies used to catch them.
+  - Have notes section where I can add my own comments and also place links to any Images I may wish link to this session eg host my own photographs.
+  - Link a geo location so I can show where this venue is, making it easier for readers of public session to find it, (or even to remember for myself) 
+  - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries I created.
 - As a new site user, I would like to be able to edit the records I have created for the  following elements of each session recorded,
-    - Venue name I visited and the topography eg river lake, sea, etc
-    - The conditions, weather, water temperature etc.
-    - The fish caught and the flies used to catch them.
-    - Have notes section where I can add my own comments and also place links to any Images I may wish link to this session eg host my own photographs.
-    - Link a geo location so I can show where this venue is, making it easier for readers of public session to find it, (or even to remember for myself) 
-    - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries I created.
+  - Venue name I visited and the topography eg river lake, sea, etc
+  - The conditions, weather, water temperature etc.
+  - The fish caught and the flies used to catch them.
+  - Have notes section where I can add my own comments and also place links to any Images I may wish link to this session eg host my own photographs.
+  - Link a geo location so I can show where this venue is, making it easier for readers of public session to find it, (or even to remember for myself) 
+  - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries I created.
+- As a new site user, I would like to be able to search document for elements such as 
+  - Venue others have visited previously 
+  - Fish they have caught and from where
+  - Venue which have been given a good rating  ( or bad, or average) 
+
 ### Returning Site Users
 - As a  a returning site user, I would like to logon to the site, so that I am known by the site.
-- As a returning site user, I would like to record new fishing sessions, which are attributed to me.
-- As a returning site user, I would like to be able to select whether my entries are public or private (e.g. so that only I can see them or all users can see them, at both time of creation or later update).
+As a returning site user, I would like to record new fishing sessions, which are attributed to me.
+-	As a returning site user, I would like to be able to select whether my entries are public or private (e.g. so that only I can see them or all users can see them, at both time of creation or later update).
 - As a returning site user, I would like to be able to see all entries I have created 
 - As a returning site user, I would like to be able to see all entries that are public 
+- As a returning site user, I would like to be able to see all entries I have created
 - As a returning site user, I would like to record new sessions with the following elements in the site,
   - Venue name I visited and the topography eg river lake, sea, etc
   - The conditions, weather, water temperature etc.
@@ -122,24 +104,22 @@ Example:
   - Link a geo location so I can show where this venue is, making it easier for readers of public session to find it, (or even to remember for myself) 
   - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries I created.
 - As a returning site user, I would like to be able to edit the records I have created for the  following elements  of each session recorded,
-    - Venue name I visited and the topography eg river lake, sea, etc
-    - The conditions, weather, water temperature etc.
-    - The fish caught and the flies used to catch them.
-    - Have notes section where I can add my own comments and also place links to any Images I may wish link to this session eg host my own photographs.
-    - Link a geo location so I can show where this venue is, making it easier for readers of public session to find it, (or even to remember for myself) 
-    - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries I created.
-	
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
+  - Venue name I visited and the topography eg river lake, sea, etc
+  - The conditions, weather, water temperature etc.
+  - The fish caught and the flies used to catch them.
+  - Have notes section where I can add my own comments and also place links to any Images I may wish link to this session eg host my own photographs.
+  - Link a geo location so I can show where this venue is, making it easier for readers of public session to find it, (or even to remember for myself) 
+  - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries I created.
+  - As a returning site user, I would like to be able to search ann document for elements such as 
+  - Venue I have or other have visited previously 
+  - Fish I have caught and from where
+  - Venue which have been given a good rating  ( or bad, or average) 
 
 ### Site Admin
+- As a site administrator, I should be able to change the location types  types for fishing , so that I can add edit or delete details such as Lake , river , or add different subcategories to this.
+- As a site administrator, I should be able to been given access to these functions as an administrator, e.g. they’re not globally available to all.
+- As a site administrator, I should be able to perform all the create, edit update and delete function taht both new ansd retunring site users can do. 
 
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 ## Wireframes
 
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
@@ -233,34 +213,29 @@ etc.
 
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
 
-In this section, you should go over the different parts of your project,
-and describe each in a sentence or so.
+Added check for password to be the same ands logic to check both passwords entered are the same 
+Provide a geo-locatioon function for users to show on amap where the fishing laocation is 
 
-You will need to explain what value each of the features provides for the user,
-focusing on who this website is for, what it is that they want to achieve,
-and how your project is the best way to help them achieve these things.
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-IMPORTANT: Remember to always include a screenshot of each individual feature!
 
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ### Existing Features
 
-- **YOUR-TITLE-FOR-FEATURE-#1**
+- **PAssword secuirty**
 
     - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
 
 ![screenshot](documentation/features/feature01.png)
 
-- **YOUR-TITLE-FOR-FEATURE-#2**
+- **Superuser identity**
+
+- **geo location for places fished**
 
     - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
 
 ![screenshot](documentation/features/feature02.png)
 
-- **YOUR-TITLE-FOR-FEATURE-#3**
+- **user segreation**
 
     - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
 
@@ -285,7 +260,7 @@ Consider adding any helpful links or notes to help remind you in the future, if 
 
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
-- YOUR-TITLE-FOR-FUTURE-FEATURE-#1
+- Public/Private Entires 
     - Any additional notes about this feature.
 - YOUR-TITLE-FOR-FUTURE-FEATURE-#2
     - Any additional notes about this feature.
@@ -362,16 +337,17 @@ It contains 3 collections:
     | _id | ObjectId() | |
     | category_name | String | |
 
-- **tasks**
+- **fdata**
     | Key | Type | Notes |
     | --- | --- | --- |
     | _id | ObjectId() | |
-    | category_name | String | selected from *categories* collection |
-    | task_name | String | |
-    | task_description | String | |
-    | is_urgent | String | |
-    | due_date | String | |
-    | created_by | String | selected from the *users* collection |
+    | fd_cat_name | String | selected from *categories* collection |
+    | fd_venue | String | fishing venue name |
+    | fd_rate | String | user rating for the session they have recorded |
+    | fd_wtemp  | String | water temperature |
+    ! fd_geoloc | String | numerical string giving co-ordinates to a map location  |
+    | fd_  | String | |
+    | fd_created_by | String | selected from the *users* collection |
 
 - **users**
     | Key | Type | Notes |
@@ -379,6 +355,7 @@ It contains 3 collections:
     | _id | ObjectId() | |
     | username | String | |
     | password | String | uses Secure Hash Algorithm (SHA) |
+    | is_superuser | String | Used to identify super user for database |
 
 ## Testing
 
@@ -387,35 +364,7 @@ It contains 3 collections:
 
 ## Deployment
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-**IMPORTANT:**
-
-- Be sure to remove all instances of PostgreSQL/Flask-Migrate if you've only used a non-relational database with MongoDB
-- Be sure to remove all instances of MongoDB if you've only used a relational database with PostgreSQL
-- ⚠️ DO NOT update the environment variables to your own! These should NOT be included in this file; just demo values! ⚠️
-- ⚠️ DO NOT update the environment variables to your own! These should NOT be included in this file; just demo values! ⚠️
-- ⚠️ DO NOT update the environment variables to your own! These should NOT be included in this file; just demo values! ⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 The live deployed application can be found deployed on [Heroku](https://water-blogged-flask-app-0fb53df2979a.herokuapp.com).
-
-### PostgreSQL Relational Database
-
-This project uses a [Code Institute PostgreSQL Database](https://dbs.ci-dbs.net).
-
-To obtain my own Postgres Database from Code Institute, I followed these steps:
-
-- Signed-in to the CI LMS using my email address.
-- An email was sent to me with my new Postgres Database.
-
-> [!CAUTION]  
-> - PostgreSQL databases by Code Institute are only available to CI Students.
-> - You must acquire your own PostgreSQL database through some other method
-> if you plan to clone/fork this repository.
-> - Code Institute students are allowed a maximum of 8 databases.
-> - Databases are subject to deletion after 18 months.
 
 ### MongoDB Non-Relational Database
 
@@ -626,13 +575,6 @@ You can fork this repository by using the following steps:
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
-### Local VS Deployment
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to discuss any differences between the local version you've developed, and the live deployment site on Heroku.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ## Credits
 
@@ -663,14 +605,9 @@ Ideally, you should provide an actual link to every resource used, not just a ge
 | [Chris Beams](https://chris.beams.io/posts/git-commit) | version control | "How to Write a Git Commit Message" |
 | [W3Schools](https://www.w3schools.com/howto/howto_js_topnav_responsive.asp) | entire site | responsive HTML/CSS/JS navbar |
 | [W3Schools](https://www.w3schools.com/howto/howto_css_modals.asp) | contact page | interactive pop-up (modal) |
-| [W3Schools](https://www.w3schools.com/css/css3_variables.asp) | entire site | how to use CSS :root variables |
-| [Flexbox Froggy](https://flexboxfroggy.com/) | entire site | modern responsive layouts |
-| [Grid Garden](https://cssgridgarden.com) | entire site | modern responsive layouts |
 | [StackOverflow](https://stackoverflow.com/a/2450976) | quiz page | Fisher-Yates/Knuth shuffle in JS |
-| [YouTube](https://www.youtube.com/watch?v=YL1F4dCUlLc) | leaderboard | using `localStorage()` in JS for high scores |
-| [YouTube](https://www.youtube.com/watch?v=u51Zjlnui4Y) | PP3 terminal | tutorial for adding color to the Python terminal |
-| [strftime](https://strftime.org) | CRUD functionality | helpful tool to format date/time from string |
 | [WhiteNoise](http://whitenoise.evans.io) | entire site | hosting static files on Heroku temporarily |
+
 
 ### Media
 
@@ -704,17 +641,5 @@ by sending yourself the following command: `!freemedia`.
 
 ### Acknowledgements
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to provide attribution to any supports that helped, encouraged, or supported you throughout the development stages of this project.
-A few examples have been provided below to give you some ideas.
-
-⚠️⚠️ EXAMPLES ONLY - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
+- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support and deep knowlege and help advice throughout this project throughout the development of this project. His support which kept me going during periods of self doubt and imposter syndrome. 
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
-- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
-- I would like to thank my partner (John/Jane), for believing in me, and allowing me to make this transition into software development.
-- I would like to thank my employer, for supporting me in my career development change towards becoming a software developer.
