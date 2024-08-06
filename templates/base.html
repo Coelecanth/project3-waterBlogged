@@ -26,7 +26,7 @@
 </head>
 
 <body class="backgr-img">
-
+    
     <header>
         <!-- side bar element -->
         <nav class="nav-extended teal darken-4">
@@ -39,7 +39,7 @@
                     {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('add_task') }}">New Fishing Session</a></li>
-                    {% if is_superuser == "true" %}
+                    {% if session.is_superuser %}
                     <li><a href="{{ url_for('get_categories') }}">Manage Fishing Locations</a></li>
                     {% endif %}
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>

@@ -12,12 +12,14 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 print('MONGO_DBNAME')
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-mongo= PyMongo(app)
+mongo = PyMongo(app)
+
 
 @app.route("/")
 @app.route("/get_fdata")
@@ -48,7 +50,6 @@ def get_tasks():
 
 
 @app.route("/search", methods=["GET", "POST"])
-@login_required
 def search():
     # find only the tasks the user has queried
     query = request.form.get("query")
@@ -56,31 +57,26 @@ def search():
     return render_template("tasks.html", tasks=tasks)
 
 
-# function to register a user 
+# function to register a user
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == 'POST':
         username = request.form.get('username').lower()
         password = request.form.get('password')
         confirm_password = request.form.get('password1')
-
         if password == confirm_password:
             existing_user = mongo.db.users.find_one({"username": username})
-            
             if existing_user:
                 flash("Username already exists", 'error')
                 return redirect(url_for("register"))
-            
             # Register the new user
             hashed_password = generate_password_hash(password)
-            
             new_user = {
                 "username": username,
                 "password": hashed_password,
                 "is_superuser": "false"
             }
             mongo.db.users.insert_one(new_user)
-
             # Put the new user into 'session' cookie
             session["user"] = username
             flash("Registration Successful!", 'success')
@@ -90,7 +86,8 @@ def register():
     
     return render_template('register.html')
         
-    
+
+# function to logon a user     
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -100,35 +97,32 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+            if check_password_hash(existing_user["password"], request.form.get("password")):  # noqa
+                session["user"] = request.form.get("username").lower()  # noqa
+                if existing_user["is_superuser"] == "true":
+                    session["is_superuser"] = True
+                else:
+                    session["is_superuser"] = False
+                    flash("Welcome, {}".format(request.form.get("username")))  # noqa
+                return redirect(url_for("profile", username=session["user"], is_superuser=session["is_superuser"]))  # noqa
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
-
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-
     return render_template("login.html")
 
-
+    
 @app.route("/profile/<username>", methods=["GET", "POST"])
 @login_required
 def profile(username):
     # grab the session user's username from db
     user = mongo.db.users.find_one({"username": session["user"]})
-    
     if user:
-        return render_template("profile.html", username=user["username"], is_superuser=user["is_superuser"])
-   
+        return render_template("profile.html", username=user["username"], is_superuser=session["is_superuser"])
     return redirect(url_for("login"))
 
  
@@ -136,10 +130,11 @@ def profile(username):
 @login_required
 def logout():
     # remove user from session cookie
+    session.clear()
     flash("You have been logged out")
-    session.pop("user") 
-    # similar to JS POP to remove just this cookie
+    # use .clear() instead of .pop() as mutiple sessions
     return redirect(url_for("login"))
+
 
 # create new record 
 @app.route("/add_task", methods=["GET", "POST"])
@@ -167,6 +162,7 @@ def add_task():
 
     categories = mongo.db.categories.find().sort("cat-name", 1)
     return render_template("add_tasks.html", categories=categories)
+
 
 # Update of current record of a user 
 @app.route("/edit_task/<fdata_id>", methods=["GET", "POST"])
@@ -216,6 +212,9 @@ def delete_task(fdata_id):
 @app.route("/get_categories")
 @login_required
 def get_categories():
+    # if not session["is_superuser"]:
+    #     flash("Access Denied: Superuser Access Only")
+    #     return redirect(url_for("get_fdata"))
     categories = list(mongo.db.categories.find().sort("cat_name", 1))
     return render_template("categories.html", categories=categories)
 
@@ -255,8 +254,6 @@ def delete_category(category_id):
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
-
-
 
 
 if __name__ == "__main__":
