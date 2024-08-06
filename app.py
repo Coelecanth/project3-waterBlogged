@@ -83,11 +83,10 @@ def register():
             return redirect(url_for("profile", username=username))
         else:
             flash('Passwords do not match!', 'error')
-    
     return render_template('register.html')
         
 
-# function to logon a user     
+# function to logon a user
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -115,7 +114,7 @@ def login():
             return redirect(url_for("login"))
     return render_template("login.html")
 
-    
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 @login_required
 def profile(username):
@@ -136,7 +135,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-# create new record 
+# create new record
 @app.route("/add_task", methods=["GET", "POST"])
 @login_required
 def add_task():
@@ -188,14 +187,12 @@ def edit_task(fdata_id):
                 "fd_fish": request.form.get("fd_fish"),
                 "fd_geoloc": request.form.get("fd_geoloc")
             }
-            mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)}, {"$set": submit})
+            mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)}, 
+            {"$set": submit})
             flash("Task Successfully Updated")
-
-
         task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
         categories = mongo.db.categories.find().sort("cat_name", 1)
         return render_template("edit_task.html", task=task, categories=categories)
-    
     # not the correct user to edit this task
     flash("You don't have access to edit this task")
     return redirect(url_for("get_tasks"))
