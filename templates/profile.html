@@ -10,7 +10,7 @@
             <div class="task-header"> {{username.capitalize() }}'s Profile </div>
             <br>
             <p>Logged on user name is {{username}}</p>
-                {% if is_superuser == "true" %}
+                {% if session.is_superuser%}
                     <p>You are a superuser!</p>
                 {% else %}
                     <p>You are not a superuser.</p>

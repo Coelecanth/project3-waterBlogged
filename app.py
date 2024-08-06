@@ -209,9 +209,9 @@ def delete_task(fdata_id):
 @app.route("/get_categories")
 @login_required
 def get_categories():
-    # if not session["is_superuser"]:
-    #     flash("Access Denied: Superuser Access Only")
-    #     return redirect(url_for("get_fdata"))
+    if not session["is_superuser"]:
+        flash("Access Denied: Superuser Access Only")
+        return redirect(url_for("get_fdata"))
     categories = list(mongo.db.categories.find().sort("cat_name", 1))
     return render_template("categories.html", categories=categories)
 
@@ -219,6 +219,9 @@ def get_categories():
 @app.route("/add_category", methods=["GET", "POST"])
 @login_required
 def add_category():
+    if not session["is_superuser"]:
+        flash("Access Denied: Superuser Access Only")
+        return redirect(url_for("get_fdata"))
     if request.method == "POST":
         category = {
             "cat_name": request.form.get("category_name")
@@ -233,6 +236,9 @@ def add_category():
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 @login_required
 def edit_category(category_id):
+    if not session["is_superuser"]:
+        flash("Access Denied: Superuser Access Only")
+        return redirect(url_for("get_fdata"))
     if request.method == "POST":
         submit = {
             "cat_name": request.form.get("category_name")
@@ -248,6 +254,9 @@ def edit_category(category_id):
 @app.route("/delete_category/<category_id>")
 @login_required
 def delete_category(category_id):
+    if not session["is_superuser"]:
+        flash("Access Denied: Superuser Access Only")
+        return redirect(url_for("get_fdata"))
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))

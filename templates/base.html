@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-   
+
     <!-- favourite icon -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/fish-fins-solid.svg') }}" type="image/x-icon">
-   
+
     {% block styles %}
     <!-- custom CSS place holder  -->
     {% endblock %}
@@ -26,7 +26,7 @@
 </head>
 
 <body class="backgr-img">
-    
+
     <header>
         <!-- side bar element -->
         <nav class="nav-extended teal darken-4">
@@ -52,18 +52,20 @@
         </nav>
         <!-- mobile navbar -->
         <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align teal darken-4 white-text">Water Blogged</h4></li>
+            <li>
+                <h4 class="center-align teal darken-4 white-text">Water Blogged</h4>
+            </li>
             <li><a href="{{ url_for('get_fdata') }}">Home</a></li>
             {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('add_task') }}">New Fishing Session</a></li>
-                    {% if session.user|lower == "admin"|lower %}
-                    <li><a href="{{ url_for('get_categories') }}">Manage Fishing Locations</a></li>
-                    {% endif %}
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+            <li><a href="{{ url_for('add_task') }}">New Fishing Session</a></li>
+            {% if session.is_superuser %}
+            <li><a href="{{ url_for('get_categories') }}">Manage Fishing Locations</a></li>
+            {% endif %}
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
             {% endif %}
         </ul>
 
