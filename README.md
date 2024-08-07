@@ -48,23 +48,15 @@ For completeness the colour scheme is shown below as an image
 
 ### Typography
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
+i used the website fontjoy to pick a pair of fonts which are complimentary in there styles but provide a mild contrast to the rest of the text on the page. The fonts chosen were sourced form google fonts and imported into my css, these were then applied with there own classes to slected text.
+The fonts used are shown below    
 
-Explain any fonts and icon libraries used, like Google Fonts and/or Font Awesome.
+- [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab) was used for the primary headers and titles.
 
-Consider adding a link to each font used, and the Font Awesome site if used (or similar icon library).
+- [Titillium web](https://fonts.google.com/specimen/Titillium+Web) was used for all other secondary text.
 
-Example:
-
+#### Icons
 I used font awesome for the icons as it was able to provide the diverse colection of I cons I needed to repreent the individual elelemt
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
-
-- [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
-
-- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
 ## User stories
 
