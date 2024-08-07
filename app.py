@@ -100,6 +100,7 @@ def login():
                 session["user"] = request.form.get("username").lower()  # noqa
                 if existing_user["is_superuser"] == "true":
                     session["is_superuser"] = True
+                    flash("Welcome, {}".format(request.form.get("username")))  # noqa
                 else:
                     session["is_superuser"] = False
                     flash("Welcome, {}".format(request.form.get("username")))  # noqa
@@ -143,7 +144,7 @@ def add_task():
         fd_public = "on" if request.form.get("fd_public") else "off"
         task = {
             "fd_wtemp": request.form.get("fd_wtemp"),
-            "cat_name": request.form.get("cat_name"),
+            "fd_cat_name": request.form.get("fd_cat_name"),
             "fd_venue": request.form.get("fd_venue"),
             "fd_public": fd_public,
             "fd_date": request.form.get("fd_date"),
@@ -169,8 +170,7 @@ def add_task():
 def edit_task(fdata_id):
     task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
     if session["user"].lower() == task["fd_created_by"].lower(): 
-        # the session["user"] must be the user who created this task
-
+        # the session["user"] must be the user who created this task to edit
         if request.method == "POST":
             fd_public = "on" if request.form.get("fd_public") else "off"
             submit = {
@@ -188,7 +188,7 @@ def edit_task(fdata_id):
                 "fd_geoloc": request.form.get("fd_geoloc")
             }
             mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)}, 
-            {"$set": submit})
+                {"$set": submit})
             flash("Task Successfully Updated")
         task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
         categories = mongo.db.categories.find().sort("cat_name", 1)

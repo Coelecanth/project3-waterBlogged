@@ -115,11 +115,10 @@
         <!-- rating drop down list -->
         <div class="input-field col s3">
             <select name="fd_rate" id="fd_rate" value="{{ task.fd_rate }}">
-                <option value="" >{{ task.fd_rate }}</option>
-
-                <option value="Good">Good</option>
-                <option value="Average">Average</option>
-                <option value="Bad">Bad</option>
+                <option value="{{ task.fd_rate }}" >{{ task.fd_rate }}</option>
+                <option value="good">Good</option>
+                <option value="average">Average</option>
+                <option value="bad">Bad</option>
             </select>
             <label for="fd_rate">Rate your Session</label>
         </div>

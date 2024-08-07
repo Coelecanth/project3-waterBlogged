@@ -48,7 +48,7 @@ For completeness the colour scheme is shown below as an image
 
 ### Typography
 
-i used the website fontjoy to pick a pair of fonts which are complimentary in there styles but provide a mild contrast to the rest of the text on the page. The fonts chosen were sourced form google fonts and imported into my css, these were then applied with there own classes to slected text.
+i used the website [fontjoy](https://fontjoy.com/) to pick a pair of fonts which are complimentary in there styles but provide a mild contrast to the rest of the text on the page. The fonts chosen were sourced from google fonts and imported into my css. These were then applied with there own classes to selected text componets in the site.
 The fonts used are shown below    
 
 - [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab) was used for the primary headers and titles.
@@ -118,114 +118,51 @@ As a returning site user, I would like to record new fishing sessions, which are
 
 ## Wireframes
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-In this section, display your wireframe screenshots using a Markdown `table`.
-Instructions on how to do Markdown `tables` start on line #213 on this site: https://pandao.github.io/editor.md/en.html
-
-Alternatively, dropdowns are a way to condense several wireframes into a collapsible menu to save space.
-Dropdowns in Markdown are considered some of the only acceptable HTML components that are allowed for assessment purposes.
-
-⚠️ **IMPORTANT**! ⚠️ **IMPORTANT**! ⚠️ **IMPORTANT**! ⚠️
-The example below uses the `details` and `summary` code elements.
-However, for these scripts to work, I've had to add spaces within the `< >` elements.
-
-You MUST remove these spaces for it to work properly on your own README/TESTING files.
-Remove the spaces within the `< >` brackets for the `details` and `summary` code elements,
-for the Mobile, Tablet, and Desktop wireframes.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
-I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
+The wireframes shown below are representativer of both desktop and tablet sized screens as the framing layout for this is the same with just the margins smaller either side. 
+ 
+### Desktop and Tablet Wireframes 
+                  
+| List Records Page  | Edit/Add Records Page |  Edit categories Page | 
+------------- | ------------- | ------------- |
+|![List tasks page](documentation/list.png) | ![Edit Add](documentation/edit-add.png) | ![Edit category](documentation/edit-cat.png)|
+| logon-logoff-register Page  |  | 
+| ![Edit category](documentation/logon-logoff-register.png)| |  | |
 
 ### Mobile Wireframes
+ | List Records Page  | Edit/Add Records Page |  Edit categories Page | 
+------------- | ------------- | ------------- |
+|![List tasks page](documentation/mob-list.png) | ![Edit Add](documentation/mob-edit-add.png) | ![Edit category](documentation/mob-edit-cat.png)|
+| logon-loggoff-register Page  |  | 
+| ![Edit category](documentation/mob-logon-logoff-register.png)| |  | |
 
-< details >
-< summary > Click here to see the Mobile Wireframes < / summary >
-
-Home
-  - ![screenshot](documentation/wireframes/mobile-home.png)
-
-About
-  - ![screenshot](documentation/wireframes/mobile-about.png)
-
-Contact
-  - ![screenshot](documentation/wireframes/mobile-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/mobile-gallery.png)
-
-etc.
-  - repeat for any remaining mobile wireframes
-
-< / details >
-
-### Tablet Wireframes
-
-< details >
-< summary > Click here to see the Tablet Wireframes < / summary >
-
-Home
-  - ![screenshot](documentation/wireframes/tablet-home.png)
-
-About
-  - ![screenshot](documentation/wireframes/tablet-about.png)
-
-Contact
-  - ![screenshot](documentation/wireframes/tablet-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/tablet-gallery.png)
-
-etc.
-  - repeat for any remaining tablet wireframes
-
-< / details >
-
-### Desktop Wireframes
-
-< details >
-< summary > Click here to see the Desktop Wireframes < / summary >
-
-Home
-  - ![screenshot](documentation/wireframes/desktop-home.png)
-
-About
-  - ![screenshot](documentation/wireframes/desktop-about.png)
-
-Contact
-  - ![screenshot](documentation/wireframes/desktop-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/desktop-gallery.png)
-
-etc.
-  - repeat for any remaining desktop wireframes
-
-< / details >
 
 ## Features
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-Added check for password to be the same ands logic to check both passwords entered are the same 
-Provide a geo-locatioon function for users to show on amap where the fishing laocation is 
-
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### Existing Features
 
-- **PAssword secuirty**
+#### **Password Integrity**
+- So to make the user experience more predictable and easier to use I introduced on register of an account the feature to enter your password twice to make sure the password is the same on both entries to prevent typographical mistakes when entering your password on user register.  Together with the features to force users to create usernames and password with the following characteristics using regular expressions
+  -	Min characters 5
+  -	Max characters 15
+  -	Constructed of the following characters 
+  -	a-z, A-Z, numbers 0-9
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
 
-![screenshot](documentation/features/feature01.png)
+![Register identity page](documentation/feats/pw-reg.png)
 
-- **Superuser identity**
+#### **Superuser Identity**
+ The site originally contained the check of the superuser identity in the html of the pages of the site which is not secure as not only can you see the identity its checking for, but it would be possible to change the page contents and post this forcing past the identity check. For this reason, I changed the verification of superuser identity.
+ - No longer tying it to a username and now storing the verification in MongoDb. 
+ - The verification is now performed in Python code, where upon the logon of the user identity, user is checked for the user key "is_superuser" = True
+ - If this value is returned as true the user is granted the superuser status
+ - The is key "is_superuser" is created by python on register of the user and is created as False 
+ - The only way to set the user as superuser is through mongo DB and updating this to True
+ - So, to circumvent this you would have to access to either the python code or Mongo DB. 
+ - The user status as a superuser is confirmed at the profile page
 
-- **geo location for places fished**
+![screenshot](documentation/feats/superuser.png)
+
+- **Geo location for places fished**
 
     - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
 
@@ -237,43 +174,24 @@ Provide a geo-locatioon function for users to show on amap where the fishing lao
 
 ![screenshot](documentation/features/feature03.png)
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-Repeat as necessary for as many features as your site contains.
-
-Hint: the more, the merrier!
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### Future Features
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-Do you have additional ideas that you'd like to include on your project in the future?
-Fantastic! List them here!
-It's always great to have plans for future improvements!
-Consider adding any helpful links or notes to help remind you in the future, if you revisit the project in a couple years.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- Public/Private Entires 
-    - Any additional notes about this feature.
-- YOUR-TITLE-FOR-FUTURE-FEATURE-#2
-    - Any additional notes about this feature.
-- YOUR-TITLE-FOR-FUTURE-FEATURE-#3
+- Public/Private Entries 
     - Any additional notes about this feature.
 
 ## Tools & Technologies Used
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+### Code and Frameworks 
+1. HTML5
+2. CSS3
+3. Javascript
+4. Pyhton
+5. Flask 
+6. Jinja templating 
+7. jquery
+8. Javascript
 
-In this section, you should explain the various tools and technologies used to develop the project.
-Make sure to put a link (where applicable) to the source, and explain what each was used for.
-Some examples have been provided, but this is just a sample only, your project might've used others.
-Feel free to delete any unused items below as necessary.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
+### Tools
 - [![Markdown Builder](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://tim.2bn.dev/markdown-builder) used to generate README and TESTING templates.
 - [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
 - [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) used for secure online code storage. 
@@ -292,13 +210,18 @@ Feel free to delete any unused items below as necessary.
 - [![Leaflet](https://img.shields.io/badge/Leaflet-grey?logo=leaflet&logoColor=199900)](https://leafletjs.com) used as a free open-source interactive map on my site.
 - [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) used for the icons.
 - [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
+- [Squoosh](https://squoosh.app/) Squooosh was used to perform the following functions convert the images from jpg to Avif, Also to resize (reduce pixel count) the images to a more manageable size to improve download speed.
+- [Google Fonts](https://fonts.google.com/) Google fonts was used to source the fonts that were selected from Fontjoy. 
+- [FontJoy](https://fontjoy.com/) Font joy was used in the design process to create a palette of fonts, to be empathic with the site topic, and provide contrast between various type styling. 
+  - **Quote** from https://fontjoy.com/  
+ *The goal of font pairing is to select fonts that share an overarching theme yet have a pleasing contrast. Which fonts work together is largely a matter of intuition, but we approach this problem with a neural net.*
 
 ## Database Design
 
 My project uses a non-relational database with MongoDB, and therefore the database architecture
 doesn't have actual relationships like a relational database would.
 
-My database is called **task_manager**.
+My database is called **fishingLog**.
 
 It contains 3 collections:
 
@@ -306,19 +229,24 @@ It contains 3 collections:
     | Key | Type | Notes |
     | --- | --- | --- |
     | _id | ObjectId() | |
-    | category_name | String | |
+    | cat_name | String | text description of water, eg lake, river, sea |
 
 - **fdata**
     | Key | Type | Notes |
     | --- | --- | --- |
     | _id | ObjectId() | |
-    | fd_cat_name | String | selected from *categories* collection |
+    | fd_cat_name | String | selected from *categories* collection frotype of water|
     | fd_venue | String | fishing venue name |
+    | fd_date | String | date of recorded session |
+    | fd_conditions | String | fishing conditions, weather, etc. |
     | fd_rate | String | user rating for the session they have recorded |
     | fd_wtemp  | String | water temperature |
+    | fd_fish  | String | fish caught |
+    | fd_flylure | String | type of fly/flies used  |
+    | fd_comment | String | free text section to descriptions or links for say pictures |
     ! fd_geoloc | String | numerical string giving co-ordinates to a map location  |
-    | fd_  | String | |
-    | fd_created_by | String | selected from the *users* collection |
+    | fd_public  | String | toggle switch for make record public - future feature|
+    | fd_created_by | String | user who recorded session derived from session ID |
 
 - **users**
     | Key | Type | Notes |
@@ -343,8 +271,8 @@ This project uses [MongoDB](https://www.mongodb.com) for the Non-Relational Data
 
 To obtain your own MongoDB Database URI, sign-up on their site, then follow these steps:
 
-- The name of the database on MongoDB should be called **insert-your-database-name-here**.
-- The collection(s) needed for this database should be **insert-your-collection-names-here**.
+- The name of the database on MongoDB should be called **fishingLog**.
+- The collection(s) needed for this database should be **categories, fdata, users**.
 - Click on the **Cluster** name created for the project.
 - Click on the **Connect** button.
 - Click **Connect Your Application**.
@@ -419,57 +347,6 @@ For either method, you will need to install any applicable packages found within
 
 - `pip3 install -r requirements.txt`.
 
-If you are using SQLAlchemy for your project, you need to create a local PostgreSQL database.
-In this example, the example database name is **db-name**.
-
-```shell
-workspace (branch) $ set_pg
-workspace (branch) $ psql
-
-... connection to postgres ...
-
-postgres=# CREATE DATABASE db-name;
-CREATE DATABASE
-postgres=# \c db-name;
-You are now connected to database "db-name" as user "foobar".
-db-name=# \q
-```
-
-Once that database is created, you must migrate the database changes from your models.py file.
-This example uses **app-name** for the name of the primary Flask application.
-
-```shell
-workspace (branch) $ python3
-
-... connection to Python CLI ...
-
->>> from app-name import db
->>> db.create_all()
->>> exit()
-```
-
-To confirm that the database table(s) have been created, you can use the following:
-
-```shell
-workspace (branch) $ psql -d db-name
-
-... connection to postgres ...
-
-postgres=# \dt
-
-	List of relations
-Schema | Name | Type | Owner
--------+------+------+--------
-public | blah1 | table | foobar
-public | blah2 | table | foobar
-public | blah3 | table | foobar
-
-db-name=# \q
-```
-
-You will need to create a new file called `env.py` at the root-level,
-and include the same environment variables listed above from the Heroku deployment steps, plus a few extras.
-
 > [!IMPORTANT]  
 > This is a sample only; you would replace the values with your own if cloning/forking my repository.
 
@@ -489,34 +366,6 @@ os.environ.setdefault("DB_URL", "user's own value")
 os.environ.setdefault("DEBUG", "True")
 os.environ.setdefault("DEVELOPMENT", "True")
 ```
-
-If using Flask-Migrate, make sure to include the following steps as well.
-
-During the course of development, it became necessary to update the PostgreSQL data models.
-In order to do this, [Flask-Migrate](https://flask-migrate.readthedocs.io) was used.
-
-- `pip3 install Flask-Migrate`
-- Import the newly installed package on your main `__init__.py` file:
-	- `from flask_migrate import Migrate`
-- Define **Migrate** in the same file after **app** and **db** are defined:
-	- `migrate = Migrate(app, db)`
-- Initiate the migration changes in the terminal:
-
-```shell
-workspace (branch) $ flask db init
-
-	... generating migrations ...
-
-workspace (branch) $ set_pg
-workspace (branch) $ flask db migrate -m "Add a commit message for this migration"
-
-	... migrating changes ...
-
-workspace (branch) $ flask db upgrade
-
-	... updating database ...
-```
-
 #### Cloning
 
 You can clone the repository by following these steps:
@@ -549,68 +398,33 @@ You can fork this repository by using the following steps:
 
 ## Credits
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-In this section you need to reference where you got your content, media, and extra help from.
-It is common practice to use code from other repositories and tutorials,
-however, it is important to be very specific about these sources to avoid plagiarism.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### Content
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to provide attribution links to any borrowed code snippets, elements, or resources.
-A few examples have been provided below to give you some ideas.
-
-Ideally, you should provide an actual link to every resource used, not just a generic link to the main site!
-
-⚠️⚠️ EXAMPLE LINKS - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+- Tim Nelson - [flask-task-manager-project](https://github.com/TravelTimN/flask-task-manager-project/blob/demo/app.py#L22-L33)
+- Tim Nelson - [Mardown Builder](https://tim.2bn.dev/markdown-builder/)
 
 | Source | Location | Notes |
 | --- | --- | --- |
 | [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
 | [Chris Beams](https://chris.beams.io/posts/git-commit) | version control | "How to Write a Git Commit Message" |
 | [W3Schools](https://www.w3schools.com/howto/howto_js_topnav_responsive.asp) | entire site | responsive HTML/CSS/JS navbar |
-| [W3Schools](https://www.w3schools.com/howto/howto_css_modals.asp) | contact page | interactive pop-up (modal) |
-| [StackOverflow](https://stackoverflow.com/a/2450976) | quiz page | Fisher-Yates/Knuth shuffle in JS |
-| [WhiteNoise](http://whitenoise.evans.io) | entire site | hosting static files on Heroku temporarily |
+| [Materialize css](https://materializecss.com/) | entire site | css framework and formatting 
 
 
 ### Media
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
+ - [Icons for edit/add pages from font awesome](https://fontawesome.com/search?q=fish&o=r&m=free)
+ - [Fish Favicons from font awesome](https://fontawesome.com/icons/fish-fins?f=classic&s=solid)
+ - [Pexels image river image - free](https://www.pexels.com/photo/body-of-water-and-green-field-under-blue-sky-photo-1179225/)
 
-Use this space to provide attribution links to any images, videos, or audio files borrowed from online.
-A few examples have been provided below to give you some ideas.
-
-If you're the owner (or a close acquaintance) of all media files, then make sure to specify this.
-Let the assessors know that you have explicit rights to use the media files within your project.
-
-Ideally, you should provide an actual link to every media file used, not just a generic link to the main site!
-The list below is by no means exhaustive. Within the Code Institute Slack community, you can find more "free media" links
-by sending yourself the following command: `!freemedia`.
-
-⚠️⚠️ EXAMPLE LINKS - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 | Source | Location | Type | Notes |
 | --- | --- | --- | --- |
 | [Pexels](https://www.pexels.com) | entire site | image | favicon on all pages |
-| [Lorem Picsum](https://picsum.photos) | home page | image | hero image background |
-| [Unsplash](https://unsplash.com) | product page | image | sample of fake products |
-| [Pixabay](https://pixabay.com) | gallery page | image | group of photos for gallery |
-| [Wallhere](https://wallhere.com) | footer | image | background wallpaper image in the footer |
-| [This Person Does Not Exist](https://thispersondoesnotexist.com) | testimonials | image | headshots of fake testimonial images |
-| [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
-| [Videvo](https://www.videvo.net/) | home page | video | background video on the hero section |
-| [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
+| [Squoosh](hhttps://squoosh.app/) | entire site | image | resizing and image format chnaging |
 
 ### Acknowledgements
 
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support and deep knowlege and help advice throughout this project throughout the development of this project. His support which kept me going during periods of self doubt and imposter syndrome. 
-- I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
+- I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance, patience with troubleshooting and debugging my project issues.
+- I would like to thank my tutor Ben Smith at Bristol college for his help and advice. 
