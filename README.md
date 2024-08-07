@@ -4,39 +4,41 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/Coelecanth/project3-waterLogged)](https://github.com/Coelecanth/project3-waterLogged/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/Coelecanth/project3-waterLogged)](https://github.com/Coelecanth/project3-waterLogged)
 
-My project idea was to create a journal for fly fisherman, who could  use this as a blog site to share with people.  
+My project idea was to create a journal for fly fisherman, who could use this as a blog site to share with people.  
 
-This was born out the research I did on this and there didn’t seem to be a site out there that could deliver this specifically for fly fishers.
+This was born out the research I did on this and there didn’t seem to be a site out there that could deliver this specifically for fly fishers. Specifically a site to share your individual experiences with others fly fishers where it wasn’t just sole platform for one fly fisher. Create a collective of like minded individuals who all share there experiences in the same place. 
 
-Essentially the idea was for the fly fisherman to be able to record there fishing sessions which could be a simple local visit or at the other end of the spectrum, a full expedition holiday. Where they could record most of the useful information on the place they visited, and then sahre this with others.
+Essentially the idea was for the fly fisherman to be able to record there fishing sessions which could be a simple local visit or at the other end of the spectrum, a full expedition holiday. Where they could record most of the useful information on the place they visited, and then share this with others, provide information such as location.
+ To show how they rated individual visits and the locations of these venues.
 
-https://ui.dev/amiresponsive?url=https://water-blogged-flask-app-0fb53df2979a.herokuapp.com
+![Waterblogged site](documentation/ami-resp.png)
 
-Find out more about using Markdown elements here:
-https://pandao.github.io/editor.md/en.html
-
-
-![screenshot](documentation/mockup.png)
-
-source: [amiresponsive](https://ui.dev/amiresponsive?url=https://water-blogged-flask-app-0fb53df2979a.herokuapp.com)
+See the fully interactive version here - source:  [amiresponsive](https://ui.dev/amiresponsive?url=https://water-blogged-flask-app-0fb53df2979a.herokuapp.com)
 
 ## UX
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
+The UX for this site was very much driven by the need to be simple to use; but also, that the site is an interactive site driven by a database, and so needed to have clean way of potentially show hundreds of records of data, and provide access to a known identity.  
+so the structure of the site was presented in the following way;
+- Logon 
+- Logoff 
+- Recognition of user type (eg superuser) 
+- Create, update, delete of data
+- integrate graphical location into the above data record management 
+- Simplify selection for known data types 
+- make it easy for user to update their own data records
 
-In this section, you will briefly explain your design processes.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+The look and feel of the site would be represented by colours, imagery, and icons relating to the subject matter, the colour scheme would be reflective of this. The layout of the pages would be centred to allow the information to be displayed but with wide margins to allow imagery of the river scene to be visible both to the side and behind. The vivid imagery used for the river could be distracting so I decided to tone this down by fading the image with a grey tone to compliment the colour scheme. 
 
 ### Colour Scheme
 
-The colour scheme chosen was to provide a idyllic reflective colour scheme of the river or lake environment with greens and blues, and deeper shades represented by grey. As I was using Materliaze CSS framework, which has good functionality for colours. I decided to match my colour scheme, using the Materliase colour scheme, so where I couldnt use the materiilase framework i could call a css class.  
+The colour scheme chosen was to provide an idyllic reflective colour scheme of the river or lake environment with greens and blues, and deeper shades represented by grey. As I was using Materialize CSS framework, which has good functionality for colours. I decided to match my colour scheme, using the Materialize colour scheme, so where I couldn’t use the Materialize framework i could call a css class.  
 
-- materialize grey lighten-2 - defined as class l-grey colour #e0e0e0
-- materialize teal darken-1 - defined as class teal colour #00897b
-- materialize teal darken-4 - defined as class green colour #004d40 
-- materialize grey lighten-2 - defined as class blue colour #0d47a1
-- materialize grey darken-2 - defined as class d-grey colour #616161 
+- Materialize grey lighten-2 - defined as class l-grey colour #e0e0e0
+- Materialize teal darken-1 - defined as class teal colour #00897b
+- Materialize teal darken-4 - defined as class green colour #004d40 
+- Materialize grey lighten-2 - defined as class blue colour #0d47a1
+- Materialize grey darken-2 - defined as class d-grey colour #616161 
+
 
 The colour scheme was refined and tuned in the [coolors.co](https://coolors.co/bac1b8-00897b-0c7c59-0d47a1-2b303a) web site and the link shows the colour scheme as seen from the website. 
 
@@ -53,6 +55,8 @@ Explain any fonts and icon libraries used, like Google Fonts and/or Font Awesome
 Consider adding a link to each font used, and the Font Awesome site if used (or similar icon library).
 
 Example:
+
+I used font awesome for the icons as it was able to provide the diverse colection of I cons I needed to repreent the individual elelemt
 
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
@@ -278,46 +282,21 @@ Feel free to delete any unused items below as necessary.
 
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
-- ⚠️⚠️ REQUIRED <-- delete me ⚠️⚠️
 - [![Markdown Builder](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://tim.2bn.dev/markdown-builder) used to generate README and TESTING templates.
 - [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
-- [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) used for secure online code storage.
-- ⚠️⚠️ CHOOSE ONLY ONE <-- delete me ⚠️⚠️
+- [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) used for secure online code storage. 
 - [![Gitpod](https://img.shields.io/badge/Gitpod-grey?logo=gitpod&logoColor=FFAE33)](https://gitpod.io) used as a cloud-based IDE for development.
-- [![Codeanywhere](https://img.shields.io/badge/Codeanywhere-grey?logo=ebox&logoColor=7F3F98)](https://codeanywhere.com) used as a cloud-based IDE for development.
 - [![VSCode](https://img.shields.io/badge/VSCode-grey?logo=visualstudiocode&logoColor=007ACC)](https://code.visualstudio.com) used as my local IDE for development.
-- ⚠️⚠️ CHOOSE ALL APPLICABLE <-- delete me ⚠️⚠️
 - [![HTML](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) used for the main site content.
 - [![CSS](https://img.shields.io/badge/CSS-grey?logo=css3&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
 - [![JavaScript](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) used for user interaction on the site.
-- [![jQuery](https://img.shields.io/badge/jQuery-grey?logo=jquery&logoColor=0769AD)](https://jquery.com) used for user interaction on the site.
+- [![jQuery](https://img.shields.io/badge/jQuery-grey?logo=jquery&logoColor=0769AD)](https://jquery.com) used for user interaction on the site with materiliaze and also Leaflet 
 - [![Python](https://img.shields.io/badge/Python-grey?logo=python&logoColor=3776AB)](https://www.python.org) used as the back-end programming language.
-- ⚠️⚠️ CHOOSE ONLY ONE <-- delete me ⚠️⚠️
-- [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-grey?logo=githubpages&logoColor=222222)](https://pages.github.com) used for hosting the deployed front-end site.
 - [![Heroku](https://img.shields.io/badge/Heroku-grey?logo=heroku&logoColor=430098)](https://www.heroku.com) used for hosting the deployed back-end site.
-- ⚠️⚠️ CHOOSE ONLY ONE (if applicable) <-- delete me ⚠️⚠️
-- [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
 - [![Materialize](https://img.shields.io/badge/Materialize-grey?logo=materialdesign&logoColor=F5A5A8)](https://materializecss.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
-- ⚠️⚠️ CHOOSE ALL APPLICABLE <-- delete me ⚠️⚠️
-- [![Google Sheets](https://img.shields.io/badge/Google_Sheets-grey?logo=googlesheets&logoColor=34A853)](https://docs.google.com/spreadsheets) used for storing data from my Python app.
-- [![Jest](https://img.shields.io/badge/Jest-grey?logo=jest&logoColor=c21325)](https://jestjs.io) used for automated JavaScript testing.
 - [![Flask](https://img.shields.io/badge/Flask-grey?logo=flask&logoColor=000000)](https://flask.palletsprojects.com) used as the Python framework for the site.
 - [![MongoDB](https://img.shields.io/badge/MongoDB-grey?logo=mongodb&logoColor=47A248)](https://www.mongodb.com) used as the non-relational database management with Flask.
-- [![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-grey?logo=sqlalchemy&logoColor=D71F00)](https://www.sqlalchemy.org) used as the relational database management with Flask.
-- [![Django](https://img.shields.io/badge/Django-grey?logo=django&logoColor=092E20)](https://www.djangoproject.com) used as the Python framework for the site.
-- [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-grey?logo=postgresql&logoColor=4169E1)](https://www.postgresql.org) used as the relational database management.
-- [![PostgreSQL by Code Institute](https://img.shields.io/badge/PostgreSQL_by_Code_Institute-grey?logo=okta&logoColor=F05223)](https://dbs.ci-dbs.net) used as the Postgres database from Code Institute.
-- [![ElephantSQL](https://img.shields.io/badge/ElephantSQL-grey?logo=postgresql&logoColor=36A6E2)](https://www.elephantsql.com) used as the Postgres database.
-- [![Cloudinary](https://img.shields.io/badge/Cloudinary-grey?logo=cloudinary&logoColor=3448C5)](https://cloudinary.com) used for online static file storage.
-- [![WhiteNoise](https://img.shields.io/badge/WhiteNoise-grey?logo=python&logoColor=FFFFFF)](https://whitenoise.readthedocs.io) used for serving static files with Heroku.
-- [![Stripe](https://img.shields.io/badge/Stripe-grey?logo=stripe&logoColor=008CDD)](https://stripe.com) used for online secure payments of ecommerce products/services.
-- [![Gmail API](https://img.shields.io/badge/Gmail_API-grey?logo=gmail&logoColor=EA4335)](https://mail.google.com) used for sending emails in my application.
-- [![MailChimp](https://img.shields.io/badge/MailChimp-grey?logo=mailchimp&logoColor=FFE01B)](https://mailchimp.com) used for sending newsletter subscriptions.
-- [![AWS S3](https://img.shields.io/badge/AWS_S3-grey?logo=amazons3&logoColor=569A31)](https://aws.amazon.com/s3) used for online static file storage.
 - [![Balsamiq](https://img.shields.io/badge/Balsamiq-grey?logo=barmenia&logoColor=CE0908)](https://balsamiq.com/wireframes) used for creating wireframes.
-- [![Figma](https://img.shields.io/badge/Figma-grey?logo=figma&logoColor=F24E1E)](https://www.figma.com) used for creating wireframes.
-- [![Canva](https://img.shields.io/badge/Canva-grey?logo=canva&logoColor=00C4CC)](https://www.canva.com/p/canvawireframes) used for creating wireframes.
-- [![Google Maps API](https://img.shields.io/badge/Google_Maps_API-grey?logo=googlemaps&logoColor=4285F4)](https://developers.google.com/maps) used as an interactive map on my site.
 - [![Leaflet](https://img.shields.io/badge/Leaflet-grey?logo=leaflet&logoColor=199900)](https://leafletjs.com) used as a free open-source interactive map on my site.
 - [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) used for the icons.
 - [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 
 /* colour paltette classes */
 .l-grey { color: #e0e0e0;} /* materialize grey lighten-2 */
@@ -8,7 +9,7 @@
 .black { color: #000000; } 
 
 body {
-    /*--apply background in case image does not load, with contrasting colour-----*/
+/*--apply background in case image does not load, with contrasting colour-----*/
     background-color: #e0e0e0; 
     background: url("/static/img/backdrop.avif");
     background-position: center;
@@ -16,6 +17,14 @@ body {
     background-size: cover;
     background-attachment: fixed 
 }
+.roboto {
+    font-family: "Roboto Slab";
+}
+
+.titillium {
+    font-family: "Titillium Web";
+}
+
 
 .nav-header{
     margin-left: 25px;
@@ -31,11 +40,13 @@ body {
 }
 
 .task-header {
+   
     font-size: 1.5em;
     margin: 1px;
     line-height: 42px;
 }
 .dropdown-text {
+    
     font-size: 1.2em;
     margin: 1px;
     line-height: 32px;
