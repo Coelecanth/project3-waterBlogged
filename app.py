@@ -84,7 +84,7 @@ def register():
         else:
             flash('Passwords do not match!', 'error')
     return render_template('register.html')
-        
+
 
 # function to logon a user
 @app.route("/login", methods=["GET", "POST"])
@@ -122,7 +122,8 @@ def profile(username):
     # grab the session user's username from db
     user = mongo.db.users.find_one({"username": session["user"]})
     if user:
-        return render_template("profile.html", username=user["username"], is_superuser=session["is_superuser"])
+        return render_template("profile.html", username=user["username"],
+            is_superuser=session["is_superuser"])
     return redirect(url_for("login"))
 
  
@@ -164,7 +165,7 @@ def add_task():
     return render_template("add_tasks.html", categories=categories)
 
 
-# Update of current record of a user 
+# Update of current record of a user
 @app.route("/edit_task/<fdata_id>", methods=["GET", "POST"])
 @login_required
 def edit_task(fdata_id):
@@ -187,12 +188,13 @@ def edit_task(fdata_id):
                 "fd_fish": request.form.get("fd_fish"),
                 "fd_geoloc": request.form.get("fd_geoloc")
             }
-            mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)}, 
+            mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)},
                 {"$set": submit})
             flash("Task Successfully Updated")
         task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
         categories = mongo.db.categories.find().sort("cat_name", 1)
-        return render_template("edit_task.html", task=task, categories=categories)
+        return render_template("edit_task.html", task=task,
+            categories=categories)
     # not the correct user to edit this task
     flash("You don't have access to edit this task")
     return redirect(url_for("get_tasks"))
@@ -243,12 +245,13 @@ def edit_category(category_id):
         submit = {
             "cat_name": request.form.get("category_name")
         }
-        mongo.db.categories.update_one({"_id": ObjectId(category_id)}, {"$set": submit})
+        mongo.db.categories.update_one({"_id": ObjectId(category_id)}, 
+            {"$set": submit})
         flash("Category Successfully Updated")
         return redirect(url_for("get_categories"))
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    return render_template("edit_categories.html", category=category)    
+    return render_template("edit_categories.html", category=category)
 
 
 @app.route("/delete_category/<category_id>")

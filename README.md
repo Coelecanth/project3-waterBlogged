@@ -79,11 +79,11 @@ I used font awesome for the icons as it was able to provide the diverse colectio
   - The fish caught and the flies used to catch them.
   - Have notes section where I can add my own comments and also place links to any Images I may wish link to this session eg host my own photographs.
   - Link a geo location so I can show where this venue is, making it easier for readers of public session to find it, (or even to remember for myself) 
-  - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries I created.
+  - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries created.
 - As a new site user, I would like to be able to search document for elements such as 
   - Venue others have visited previously 
   - Fish they have caught and from where
-  - Venue which have been given a good rating  ( or bad, or average) 
+  - Venue which have been given a good rating( or bad, or average) 
 
 ### Returning Site Users
 - As a  a returning site user, I would like to logon to the site, so that I am known by the site.
@@ -91,7 +91,6 @@ As a returning site user, I would like to record new fishing sessions, which are
 -	As a returning site user, I would like to be able to select whether my entries are public or private (e.g. so that only I can see them or all users can see them, at both time of creation or later update).
 - As a returning site user, I would like to be able to see all entries I have created 
 - As a returning site user, I would like to be able to see all entries that are public 
-- As a returning site user, I would like to be able to see all entries I have created
 - As a returning site user, I would like to record new sessions with the following elements in the site,
   - Venue name I visited and the topography eg river lake, sea, etc
   - The conditions, weather, water temperature etc.
@@ -105,11 +104,11 @@ As a returning site user, I would like to record new fishing sessions, which are
   - The fish caught and the flies used to catch them.
   - Have notes section where I can add my own comments and also place links to any Images I may wish link to this session eg host my own photographs.
   - Link a geo location so I can show where this venue is, making it easier for readers of public session to find it, (or even to remember for myself) 
-  - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries I created.
-  - As a returning site user, I would like to be able to search ann document for elements such as 
+  - Record  my rating of the session, good, average, bad, and then show this rating in my overall list of entries created.
+  - As a returning site user, I would like to be able to search a document for elements such as 
   - Venue I have or other have visited previously 
   - Fish I have caught and from where
-  - Venue which have been given a good rating  ( or bad, or average) 
+  - Venue which have been given a good rating ( or bad, or average) 
 
 ### Site Admin
 - As a site administrator, I should be able to change the location types  types for fishing , so that I can add edit or delete details such as Lake , river , or add different subcategories to this.
@@ -164,15 +163,23 @@ The wireframes shown below are representativer of both desktop and tablet sized 
 
 - **Geo location for places fished**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - With this project I used Leaflet an open-source interactive map which would then allow the user when they are creating entries in the add or edit record to add or change a map location where they have been fishing. This can then be viewed in the list of all records created for in the site. The implemtation required some consideration as to have mutiple maps shown on the listing page would have been detrimental to performance and stability, having mutiple maps all laoding and opening at the same time. For this a modal was chosen as the mechanism to show the maps as this would mean there would only be one map open at any given time. 
 
-![screenshot](documentation/features/feature02.png)
+![screenshot](documentation/feats/geloc.png)
 
-- **user segreation**
+- **Session rating for places fished**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
-
-![screenshot](documentation/features/feature03.png)
+    - So for this project i added rating for each session you create 
+    - The rating is exposed as a tool tip and Icon on each record, so removing the need to open the record, you just need to hover it 
+    - This was created speciifcally as searchable item so the idea being as a user i could from the listing page search for all session marked as good.
+    - The rating are colour coded 
+      - Green - Good
+      - Yellow - Average
+      - Red - Bad
+      - blue - not rated
+    - Upon opeing the reccord can then choose to msay what it was bad or good, so providing the user with a vaiuable reserach tool 
+    
+![screenshot](documentation/feats/tooltip.png)
 
 ### Future Features
 
