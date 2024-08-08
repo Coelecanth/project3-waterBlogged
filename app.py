@@ -122,8 +122,8 @@ def profile(username):
     # grab the session user's username from db
     user = mongo.db.users.find_one({"username": session["user"]})
     if user:
-        return render_template("profile.html", username=user["username"],
-                is_superuser=session["is_superuser"])
+        return render_template(
+            "profile.html", username=user["username"], is_superuser=session["is_superuser"])
     return redirect(url_for("login"))
 
 
