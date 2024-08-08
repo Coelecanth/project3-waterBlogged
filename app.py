@@ -170,7 +170,7 @@ def add_task():
 @login_required
 def edit_task(fdata_id):
     task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
-    if session["user"].lower() == task["fd_created_by"].lower(): 
+    if session["user"].lower() == task["fd_created_by"].lower():
         # the session["user"] must be the user who created this task to edit
         if request.method == "POST":
             fd_public = "on" if request.form.get("fd_public") else "off"
@@ -245,8 +245,8 @@ def edit_category(category_id):
         submit = {
             "cat_name": request.form.get("category_name")
         }
-        mongo.db.categories.update_one({"_id": ObjectId(category_id)}, 
-            {"$set": submit})
+        mongo.db.categories.update_one({"_id": ObjectId(category_id)},
+        {"$set": submit})
         flash("Category Successfully Updated")
         return redirect(url_for("get_categories"))
 
