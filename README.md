@@ -6,7 +6,7 @@
 
 My project idea was to create a journal for fly fisherman, who could use this as a blog site to share with people.  
 
-This was born out the research I did on this and there didn’t seem to be a site out there that could deliver this specifically for fly fishers. Specifically a site to share your individual experiences with others fly fishers where it wasn’t just sole platform for one fly fisher. Create a collective of like minded individuals who all share there experiences in the same place. 
+This was born out the research I did on this and there didn’t seem to be a site out there that could deliver this specifically for fly fishers. Specifically a site to share your individual experiences with others fly fishers where it wasn’t just sole platform for one fly fisher. Create a collective of like minded individuals who all share there experiences in the same place. I chose the name the name Water Blogged as plagurism of the expression "water logged", which could have two meaning of soaked or a journal for the water.  
 
 Essentially the idea was for the fly fisherman to be able to record there fishing sessions which could be a simple local visit or at the other end of the spectrum, a full expedition holiday. Where they could record most of the useful information on the place they visited, and then share this with others, provide information such as location.
  To show how they rated individual visits and the locations of these venues.
@@ -17,17 +17,19 @@ See the fully interactive version here - source:  [amiresponsive](https://ui.dev
 
 ## UX
 
-The UX for this site was very much driven by the need to be simple to use; but also, that the site is an interactive site driven by a database, and so needed to have clean way of potentially show hundreds of records of data, and provide access to a known identity.  
-so the structure of the site was presented in the following way;
-- Logon 
-- Logoff 
-- Recognition of user type (eg superuser) 
-- Create, update, delete of data
-- integrate graphical location into the above data record management 
-- Simplify selection for known data types 
-- make it easy for user to update their own data records
+The UX for this site was very much driven by the need to be simple to use, without explaantion. Also, that the site is an interactive site driven by a database, and so needed to have clean way of potentially showing hundreds of records of data, and provide access to a known identity.  
+So the structure of the site was presented in the following way;
+- Logon page 
+- Logoff page
+- Recognition of user type (eg superuser), user can check who they think they are. 
+- Create, update, delete of data records
+- integrate graphical location data into the above data record management 
+- Simplify selection for known repeatble data types 
+- Make it easy for user to update their own data records
 
-The look and feel of the site would be represented by colours, imagery, and icons relating to the subject matter, the colour scheme would be reflective of this. The layout of the pages would be centred to allow the information to be displayed but with wide margins to allow imagery of the river scene to be visible both to the side and behind. The vivid imagery used for the river could be distracting so I decided to tone this down by fading the image with a grey tone to compliment the colour scheme. 
+The look and feel of the site would be represented by colours, imagery, and icons relating to the subject matter, the colour scheme would be reflective of this. I chose to use Materize CSS as a the CSS framework to assist me with creating the look and feel of the site. In hindsight this may not have been the best choice as there was found to be some serious flaws and stability issues (see [TESTING.md](TESTING.md))
+
+The layout of the pages would be centred to allow the information to be displayed in a pleasing not cluttered maner, but with wide margins to allow imagery of the river scene to be visible both to the side and behind. The vivid imagery used for the river initally could be distracting so I decided to tone this down by fading the image with a grey tone to compliment the colour scheme. 
 
 ### Colour Scheme
 
@@ -48,15 +50,25 @@ For completeness the colour scheme is shown below as an image
 
 ### Typography
 
-i used the website [fontjoy](https://fontjoy.com/) to pick a pair of fonts which are complimentary in there styles but provide a mild contrast to the rest of the text on the page. The fonts chosen were sourced from google fonts and imported into my css. These were then applied with there own classes to selected text componets in the site.
+I used the website [fontjoy](https://fontjoy.com/) to pick a pair of fonts which are complimentary in there styles but provide a mild contrast to the rest of the text on the page. The fonts chosen were sourced from google fonts and imported into my css. These were then applied with there own classes to selected text componets in the site.
 The fonts used are shown below    
 
 - [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab) was used for the primary headers and titles.
 
-- [Titillium web](https://fonts.google.com/specimen/Titillium+Web) was used for all other secondary text.
+- [Titillium web](https://fonts.google.com/specimen/Titillium+Web) was used for other secondary text.
 
 #### Icons
-I used font awesome for the icons as it was able to provide the diverse colection of I cons I needed to repreent the individual elelemt
+I used [Fontawesome](https://fontawesome.com/icons) for the icons as it was able to provide the diverse collection of Icons I needed to repreent the individual elelemts, and provided good support for my needs with CDN. The list of icons I used from font awesome are as follows 
+
+- [Mountain icon](https://fontawesome.com/icons/mountain-sun?f=classic&s=solid)
+- [Location Dot icon](https://fontawesome.com/icons/location-dot?f=classic&s=solid)
+- [Temperature icon](https://fontawesome.com/icons/temperature-three-quarters?f=classic&s=solid)
+- [Fish icon](https://fontawesome.com/icons/fish-fins?f=classic&s=solid)
+- [Fly icon](https://fontawesome.com/icons/mosquito?f=classic&s=solid)
+- [Cloud icon](https://fontawesome.com/icons/cloud?f=classic&s=solid)
+- [Calendar icon](https://fontawesome.com/icons/calendar-days?f=classic&s=solid)
+- [Notes icon](https://fontawesome.com/icons/align-left?f=classic&s=solid)
+- [Favicon - Fish icon](https://fontawesome.com/icons/fish-fins?f=classic&s=solid)
 
 ## User stories
 
@@ -161,30 +173,54 @@ The wireframes shown below are representativer of both desktop and tablet sized 
 
 ![screenshot](documentation/feats/superuser.png)
 
-- **Geo location for places fished**
+#### **Geo Location for Places Fished**
 
-    - With this project I used Leaflet an open-source interactive map which would then allow the user when they are creating entries in the add or edit record to add or change a map location where they have been fishing. This can then be viewed in the list of all records created for in the site. The implemtation required some consideration as to have mutiple maps shown on the listing page would have been detrimental to performance and stability, having mutiple maps all laoding and opening at the same time. For this a modal was chosen as the mechanism to show the maps as this would mean there would only be one map open at any given time. 
+With this project I used Leaflet an open-source interactive map which would then allow the user when they are creating entries in the add or edit record to add or change a map location where they have been fishing. This can then be viewed in the list of all records created for in the site. The implemtation required some consideration as to have mutiple maps shown on the listing page would have been detrimental to performance and stability, having mutiple maps all laoding and opening at the same time. For this a modal was chosen as the mechanism to show the maps as this would mean there would only be one map open at any given time. 
 
 ![screenshot](documentation/feats/geloc.png)
 
-- **Session rating for places fished**
+#### **Session rating for places fished**
 
-    - So for this project i added rating for each session you create 
-    - The rating is exposed as a tool tip and Icon on each record, so removing the need to open the record, you just need to hover it 
-    - This was created speciifcally as searchable item so the idea being as a user i could from the listing page search for all session marked as good.
-    - The rating are colour coded 
-      - Green - Good
-      - Yellow - Average
-      - Red - Bad
-      - blue - not rated
-    - Upon opeing the reccord can then choose to msay what it was bad or good, so providing the user with a vaiuable reserach tool 
+- So for this project I added rating for each session you create.
+- The rating is exposed as a tool tip and Icon on each record, so removing the need to open the record, you just need to hover it, and in additon to this the rating is also colour coded.
+- This was created speciifcally as searchable item so the idea being as a user I could from the listing page search for all session marked as good.
+- The rating are colour coded as follows;
+  - Green - Good
+  - Yellow - Average
+  - Red - Bad
+  - blue - not rated
+- Upon opening the record the viewer, can read then further detail from the author to say why it was bad or good, so providing the user with a valuable reserach tool. 
     
 ![screenshot](documentation/feats/tooltip.png)
 
 ### Future Features
 
-- Public/Private Entries 
-    - Any additional notes about this feature.
+#### **Public/Private Entries** 
+So as part of the features for the user I wanted to develop a feature where when the user creates a session record, and they can chose to make this a public or private record document in the fdata collection. This would allow the user to extend the site to become not only a blog, but a personal journal of their fishing sessions, and then if they  wish to share these with the greater community using the site, thye can by making the record public.
+
+The implementation of this would be achieved in the following steps.
+- The document created by the user would have a switch/toggle entry making it public or private.
+- So this record would then be shown if made public in home page view, when you clicked on the home tab from the navbar, which is the default mode of operation.
+- If the user had set this record to private it would not be shown in the home tab view.
+- The record would then only be shown when clicking on the user’s profile tab as this would exclusive to them.
+- It would also include public record that the current logged on user had created as well in the view.
+- The records (public/private) would be differentiated by a tool tip on the record with a padlock icon (open or closed) in different colours.
+
+As of submission this feature was not fully completed, but the following elements have been completed.
+- Creation of the switch in add record to set public or private
+- Edit records to change this record from public or private.
+- The storing adding/updating of the switch value in Mongo DB, eg fd_public = on or off
+
+Out standing are:
+- Profile page listing with both public and private records for the current user and the filter logic required for this.
+- The addition of the padlock tool (showing public/private) tip to each record in profile view
+- The filtering in the home tab view to include the current abilities of 
+  - Edit users records that are created by the current user, (not anyone else)
+  - Show all records of everyone else
+  - Then additional filtering of only showing records from the current user which are set to public.
+
+![screenshot](documentation/feats/pu-priv.png)
+
 
 ## Tools & Technologies Used
 
@@ -404,6 +440,7 @@ You can fork this repository by using the following steps:
 
 
 ## Credits
+I would like acknowledge the use of the following sites and help in building this site. 
 
 ### Content
 
@@ -432,6 +469,7 @@ You can fork this repository by using the following steps:
 
 ### Acknowledgements
 
-- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support and deep knowlege and help advice throughout this project throughout the development of this project. His support which kept me going during periods of self doubt and imposter syndrome. 
+- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support and deep knowlege and help advice throughout the development of this project, and his support which kept me going during periods of self doubt and imposter syndrome. 
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance, patience with troubleshooting and debugging my project issues.
 - I would like to thank my tutor Ben Smith at Bristol college for his help and advice. 
+- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for showing "I'm not the only one", and persisting. 
