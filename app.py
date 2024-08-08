@@ -123,10 +123,10 @@ def profile(username):
     user = mongo.db.users.find_one({"username": session["user"]})
     if user:
         return render_template("profile.html", username=user["username"],
-            is_superuser=session["is_superuser"])
+                is_superuser=session["is_superuser"])
     return redirect(url_for("login"))
 
- 
+
 @app.route("/logout")
 @login_required
 def logout():
