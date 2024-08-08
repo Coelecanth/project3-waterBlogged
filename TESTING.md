@@ -3,61 +3,47 @@
 > [!NOTE]  
 > Return back to the [README.md](README.md) file.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
+The structure of the Testing for "Water Blogged" is as follows  
 
-In this section, you need to convince the assessors that you have conducted enough testing to legitimately believe that the site works well.
-Essentially, in this part, you should go over all of your project's features, and ensure that they all work as intended,
-with the project providing an easy and straightforward way for the users to achieve their goals.
+## Feature Testing:
 
-Feature-by-Feature Testing:
+### Usability Testing
+- User can register and password are checked for consistency
+- the navigation bar functions correctly 
+- User can Logon and logoff
+- User can create, update and delete their own records  
+- The session rating function is working 
+- The geo-location recording is working
 
-Go through each feature of your portfolio site and detail the testing process for each.
+### Defence programming 
 
-Explain the functionality and demonstrate how it aligns with the intended purpose. This could include:
+In this section we test that users can only access features and functionality they are supposed to be able to access 
+This would include 
+- Performing CRUD operations only on records that they have created  
+- Superuser have access to Super user functions and normal user do not 
+- Normal user not being able to brute force there way into pages to access super user features
 
-- Navigation: Ensuring smooth transitions between pages, links directing to the correct destinations.
-- Responsive Design: Checking for compatibility across various devices and screen sizes.
-- Portfolio Display: Verifying that projects are properly showcased with accurate descriptions, images, and links.
-- Contact Form: Testing the form submission process, ensuring the user receives a confirmation, and you receive the message.
-
-User Experience Testing:
-
-- Usability Testing: Have users (or simulated users) interact with the site and provide feedback. Document any issues encountered and the resolutions implemented.
-- Accessibility Testing: Confirm compliance with accessibility standards (e.g., screen reader compatibility, proper alt text for images, keyboard navigation).
-
-Compatibility Testing:
+## Compatibility Testing:
 
 - Browser Compatibility: Testing on different browsers (Chrome, Firefox, Safari, Edge, etc.) to ensure consistent performance.
 - Device Compatibility: Ensuring functionality across various devices (desktops, laptops, tablets, and mobile phones).
-- Performance Testing (optional):
-	- Speed and Load Testing: Tools like PageSpeed Insights or GTmetrix to check page load times and optimize where necessary.
-	- Scalability Testing: Assess how the site handles increased traffic or usage.
 
-Regression Testing:
+## Regression Testing:
 
-After implementing fixes or updates, ensure that previous features and functionalities still work as intended. This prevents new changes from breaking existing features.
-
-Documentation and Logs:
+## Documentation and Logs:
 
 Maintain records of testing procedures, results, and any bugs encountered along with their resolutions. This helps demonstrate a systematic approach to testing and problem-solving.
 User Feedback Incorporation:
 
 If applicable, mention how user feedback has been taken into account and implemented to enhance the user experience.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ## Code Validation
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use the space to discuss code validation for any of your own code files (where applicable).
-You are not required to validate external libraries/frameworks, such as imported Bootstrap, Materialize, Font Awesome, etc.
-
-**IMPORTANT**: You must provide a screenshot for each file you validate.
-
-**PRO TIP**: Always validate the live site pages, not your local code. There could be subtle/hidden differences.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+ the following items were code checked 
+ - HTML
+ - Javascript
+ - Python
+ - CSS
 
 ### HTML
 
@@ -65,28 +51,42 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| templates | add_tasks.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| templates | edit_task.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| templates | login.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| templates | profile.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| templates | register.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| templates | tasks.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| templates | add_tasks.html | ![screenshot](documentation/html_validation/add_tasks.png)| |
+| templates | edit_task.html | ![screenshot](documentation/html_validation/edit_task.png) | |
+| templates | login.html | ![screenshot](documentation/html_validation/login.png) | |
+| templates | profile.html | ![screenshot](documentation/html_validation/profile.png) | |
+| templates | register.html | ![screenshot](documentation/html_validation/register.png) | |
+| templates | tasks.html | ![screenshot](documentation/html_validation/tasks.png) | |
+| templates | categories.html | ![screenshot](documentation/html_validation/categories.png) | |
 
 ### CSS
 
 I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
 
+All the errors found (x3 errors and x649 Warnings) were with frameworks that were being used on Water Blogged site,
+the Errors were from: 
+ - Leaflet
+ - Materiaze 
+
+The Warning were from
+ - Font Awesome 
+
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| static | style.css | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| static | style.css | ![screenshot](documentation/css_validation/css.png) | |
 
 ### JavaScript
 
 I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
 
+The JSHint tool showed only warning for the JSscript for the Leaflet Geo Location
+
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| static | js_script.js | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| static | js_script.js | ![screenshot](documentation/js_validation/js_script.png) |  Jscript for Materialize CSS functions |
+| static | add_task.html | ![screenshot](documentation/js_validation/add_leaflet.png) |  Jscript for add in g location for geo-location function Leaflet  |
+| static | edit_task.html | ![screenshot](documentation/js_validation/edit_leaflet.png) |  Jscript for edit location for geo-location function Leaflet  |
+
 
 ### Python
 
@@ -94,47 +94,16 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 | Directory | File | CI URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-|  | app.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Coelecanth/project3-waterBlogged/main/app.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+|  | app.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Coelecanth/project3-waterBlogged/main/app.py) | ![screenshot](documentation/python_validation/python.png) | |
 
 ## Browser Compatibility
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to discuss testing the live/deployed site on various browsers.
-
-Consider testing AT LEAST 3 different browsers, if available on your system.
-
-You DO NOT need to use all of the browsers below, just pick any 3 (minimum).
-
-Recommended browsers to consider:
-- [Chrome](https://www.google.com/chrome)
-- [Firefox (Developer Edition)](https://www.mozilla.org/firefox/developer)
-- [Edge](https://www.microsoft.com/edge)
-- [Safari](https://support.apple.com/downloads/safari)
-- [Brave](https://brave.com/download)
-- [Opera](https://www.opera.com/download)
-
-**IMPORTANT**: You must provide screenshots of the tested browsers, to "prove" that you've actually tested them.
-
-Please note, there are services out there that can test multiple browser compatibilities at the same time.
-Some of these are paid services, but some are free.
-If you use these, you must provide a link to the source used for attribution, and multiple screenshots of the results.
-
-Sample browser testing documentation:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-I've tested my deployed project on multiple browsers to check for compatibility issues.
 
 | Browser | Home | About | Contact | etc | Notes |
 | --- | --- | --- | --- | --- | --- |
 | Chrome | ![screenshot](documentation/browsers/browser-chrome-home.png) | ![screenshot](documentation/browsers/browser-chrome-about.png) | ![screenshot](documentation/browsers/browser-chrome-contact.png) | ![screenshot](documentation/browsers/browser-chrome-etc.png) | Works as expected |
 | Firefox | ![screenshot](documentation/browsers/browser-firefox-home.png) | ![screenshot](documentation/browsers/browser-firefox-about.png) | ![screenshot](documentation/browsers/browser-firefox-contact.png) | ![screenshot](documentation/browsers/browser-firefox-etc.png) | Works as expected |
-| Edge | ![screenshot](documentation/browsers/browser-edge-home.png) | ![screenshot](documentation/browsers/browser-edge-about.png) | ![screenshot](documentation/browsers/browser-chrome-edge.png) | ![screenshot](documentation/browsers/browser-edge-etc.png) | Works as expected |
-| Safari | ![screenshot](documentation/browsers/browser-safari-home.png) | ![screenshot](documentation/browsers/browser-safari-about.png) | ![screenshot](documentation/browsers/browser-safari-contact.png) | ![screenshot](documentation/browsers/browser-safari-etc.png) | Minor CSS differences |
-| Brave | ![screenshot](documentation/browsers/browser-brave-home.png) | ![screenshot](documentation/browsers/browser-brave-about.png) | ![screenshot](documentation/browsers/browser-brave-contact.png) | ![screenshot](documentation/browsers/browser-brave-etc.png) | Works as expected |
-| Opera | ![screenshot](documentation/browsers/browser-opera-home.png) | ![screenshot](documentation/browsers/browser-opera-about.png) | ![screenshot](documentation/browsers/browser-opera-contact.png) | ![screenshot](documentation/browsers/browser-opera-etc.png) | Minor differences |
-| repeat for any other tested browsers | x | x | x | x | x |
+| Edge | ![screenshot](documentation/browsers/browser-edge-home.png) | ![screenshot](documentation/browsers/browser-edge-about.png) | !
 
 ## Responsiveness
 
