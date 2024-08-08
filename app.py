@@ -123,7 +123,10 @@ def profile(username):
     user = mongo.db.users.find_one({"username": session["user"]})
     if user:
         return render_template(
-            "profile.html", username=user["username"], is_superuser=session["is_superuser"])
+            "profile.html",
+            username=user["username"],
+            is_superuser=session["is_superuser"]
+        )
     return redirect(url_for("login"))
 
 
@@ -188,13 +191,18 @@ def edit_task(fdata_id):
                 "fd_fish": request.form.get("fd_fish"),
                 "fd_geoloc": request.form.get("fd_geoloc")
             }
-            mongo.db.fdata.update_one({"_id": ObjectId(fdata_id)},
-                {"$set": submit})
+            mongo.db.fdata.update_one(
+                {"_id": ObjectId(fdata_id)},
+                {"$set": submit}
+            )
             flash("Task Successfully Updated")
         task = mongo.db.fdata.find_one({"_id": ObjectId(fdata_id)})
         categories = mongo.db.categories.find().sort("cat_name", 1)
-        return render_template("edit_task.html", task=task,
-            categories=categories)
+        return render_template(
+            "edit_task.html",
+            task=task,
+            categories=categories
+        )
     # not the correct user to edit this task
     flash("You don't have access to edit this task")
     return redirect(url_for("get_tasks"))
@@ -245,8 +253,10 @@ def edit_category(category_id):
         submit = {
             "cat_name": request.form.get("category_name")
         }
-        mongo.db.categories.update_one({"_id": ObjectId(category_id)},
-        {"$set": submit})
+        mongo.db.categories.update_one(
+            {"_id": ObjectId(category_id)},
+            {"$set": submit}
+        )
         flash("Category Successfully Updated")
         return redirect(url_for("get_categories"))
 
