@@ -99,11 +99,11 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 ## Browser Compatibility
 
 
-| Browser | Home | About | Contact | etc | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Chrome | ![screenshot](documentation/browsers/browser-chrome-home.png) | ![screenshot](documentation/browsers/browser-chrome-about.png) | ![screenshot](documentation/browsers/browser-chrome-contact.png) | ![screenshot](documentation/browsers/browser-chrome-etc.png) | Works as expected |
-| Firefox | ![screenshot](documentation/browsers/browser-firefox-home.png) | ![screenshot](documentation/browsers/browser-firefox-about.png) | ![screenshot](documentation/browsers/browser-firefox-contact.png) | ![screenshot](documentation/browsers/browser-firefox-etc.png) | Works as expected |
-| Edge | ![screenshot](documentation/browsers/browser-edge-home.png) | ![screenshot](documentation/browsers/browser-edge-about.png) | !
+| Browser | Home | add user | register | Notes |
+| --- | --- | --- | --- | --- | 
+| Chrome | ![screenshot](documentation/browsers/chr-tasks.png) | ![screenshot](documentation/browsers/chr-add.png) | ![screenshot](documentation/browsers/chr-reg.png) | Works as expected |
+| Firefox | ![screenshot](documentation/browsers/ff-tasks.png) | ![screenshot](documentation/browsers/ff-add.png) | ![screenshot](documentation/browsers/ff-reg.png) | Works as expected |
+| Edge | ![screenshot](documentation/browsers/edg-tasks.png) | ![screenshot](documentation/browsers/edg-add.png) | ![screenshot](documentation/browsers/edg-reg.png) | Works as expected |
 
 ## Responsiveness
 
@@ -130,16 +130,11 @@ Sample responsiveness testing documentation:
 
 I've tested my deployed project on multiple devices to check for responsiveness issues.
 
-| Device | Home | About | Contact | etc | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Mobile (DevTools) | ![screenshot](documentation/responsiveness/responsive-mobile-home.png) | ![screenshot](documentation/responsiveness/responsive-mobile-about.png) | ![screenshot](documentation/responsiveness/responsive-mobile-contact.png) | ![screenshot](documentation/responsiveness/responsive-mobile-etc.png) | Works as expected |
-| Tablet (DevTools) | ![screenshot](documentation/responsiveness/responsive-tablet-home.png) | ![screenshot](documentation/responsiveness/responsive-tablet-about.png) | ![screenshot](documentation/responsiveness/responsive-tablet-contact.png) | ![screenshot](documentation/responsiveness/responsive-tablet-etc.png) | Works as expected |
-| Desktop | ![screenshot](documentation/responsiveness/responsive-desktop-home.png) | ![screenshot](documentation/responsiveness/responsive-desktop-about.png) | ![screenshot](documentation/responsiveness/responsive-desktop-contact.png) | ![screenshot](documentation/responsiveness/responsive-desktop-etc.png) | Works as expected |
-| XL Monitor | ![screenshot](documentation/responsiveness/responsive-xl-home.png) | ![screenshot](documentation/responsiveness/responsive-xl-about.png) | ![screenshot](documentation/responsiveness/responsive-xl-contact.png) | ![screenshot](documentation/responsiveness/responsive-xl-etc.png) | Scaling starts to have minor issues |
-| 4K Monitor | ![screenshot](documentation/responsiveness/responsive-4k-home.png) | ![screenshot](documentation/responsiveness/responsive-4k-about.png) | ![screenshot](documentation/responsiveness/responsive-4k-contact.png) | ![screenshot](documentation/responsiveness/responsive-4k-etc.png) | Noticeable scaling issues |
-| Google Pixel 7 Pro | ![screenshot](documentation/responsiveness/responsive-pixel-home.png) | ![screenshot](documentation/responsiveness/responsive-pixel-about.png) | ![screenshot](documentation/responsiveness/responsive-pixel-contact.png) | ![screenshot](documentation/responsiveness/responsive-pixel-etc.png) | Works as expected |
-| iPhone 14 | ![screenshot](documentation/responsiveness/responsive-iphone-home.png) | ![screenshot](documentation/responsiveness/responsive-iphone-about.png) | ![screenshot](documentation/responsiveness/responsive-iphone-contact.png) | ![screenshot](documentation/responsiveness/responsive-iphone-etc.png) | Works as expected |
-| repeat for any other tested browsers | x | x | x | x | x |
+| Device | Home | Add | register | Notes |
+| --- | --- | --- | --- | --- | 
+| Mobile (DevTools) | ![screenshot](documentation/resp/m-chr-tasks.png) | ![screenshot](documentation/resp/m-chr-add.png) | ![screenshot](documentation/resp/m-chr-reg.png) | Works as expected |
+| Tablet (DevTools) | ![screenshot](documentation/resp/t-chr-tasks.png) | ![screenshot](documentation/resp/t-chr-add.png) | ![screenshot](documentation/resp/t-chr-reg.png) | Works as expected |
+| Desktop | ![screenshot](documentation/resp/d-chr-tasks.png) | ![screenshot](documentation/resp/d-chr-add.png) | ![screenshot](documentation/resp/d-chr-reg.png)| Works as expected |
 
 ## Lighthouse Audit
 
