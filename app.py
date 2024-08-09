@@ -79,6 +79,7 @@ def register():
             mongo.db.users.insert_one(new_user)
             # Put the new user into 'session' cookie
             session["user"] = username
+            session["is_superuser"] = False
             flash("Registration Successful!", 'success')
             return redirect(url_for("profile", username=username))
         else:
