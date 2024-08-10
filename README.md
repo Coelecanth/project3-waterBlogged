@@ -123,9 +123,9 @@ As a returning site user, I would like to record new fishing sessions, which are
   - Venue which have been given a good rating ( or bad, or average) 
 
 ### Site Admin
-- As a site administrator, I should be able to change the location types  types for fishing , so that I can add edit or delete details such as Lake , river , or add different subcategories to this.
-- As a site administrator, I should be able to been given access to these functions as an administrator, e.g. they’re not globally available to all.
-- As a site administrator, I should be able to perform all the create, edit update and delete function taht both new ansd retunring site users can do. 
+- As a site administrator, I should be able to change the location types for fishing , so that I can add edit or delete details such as Lake, river, or add different subcategories to this.
+- As a site administrator, I should be given access to these functions as an administrator, e.g. they’re not globally available to all.
+- As a site administrator, I should be able to perform all the create, edit update and delete function that both new ansd returning site users can do. 
 
 ## Wireframes
 
@@ -135,16 +135,16 @@ The wireframes shown below are representativer of both desktop and tablet sized 
                   
 | List Records Page  | Edit/Add Records Page |  Edit categories Page | 
 ------------- | ------------- | ------------- |
-|![List tasks page](documentation/list.png) | ![Edit Add](documentation/edit-add.png) | ![Edit category](documentation/edit-cat.png)|
+|![List tasks page](documentation/wf/list.png) | ![Edit Add](documentation/wf/edit-add.png) | ![Edit category](documentation/wf/edit-cat.png)|
 | logon-logoff-register Page  |  | 
-| ![Edit category](documentation/logon-logoff-register.png)| |  | |
+| ![Edit category](documentation/wf/logon-logoff-register.png)| |  | |
 
 ### Mobile Wireframes
  | List Records Page  | Edit/Add Records Page |  Edit categories Page | 
 ------------- | ------------- | ------------- |
-|![List tasks page](documentation/mob-list.png) | ![Edit Add](documentation/mob-edit-add.png) | ![Edit category](documentation/mob-edit-cat.png)|
+|![List tasks page](documentation/wf/mob-list.png) | ![Edit Add](documentation/wf/mob-edit-add.png) | ![Edit category](documentation/wf/mob-edit-cat.png)|
 | logon-loggoff-register Page  |  | 
-| ![Edit category](documentation/mob-logon-logoff-register.png)| |  | |
+| ![Edit category](documentation/wf/mob-logon-logoff-register.png)| |  | |
 
 
 ## Features

@@ -107,26 +107,10 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 ## Responsiveness
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to discuss testing the live/deployed site on various device sizes.
-
-The minimum requirement is for the following 3 tests:
+I tested for responsiveness for the following 3 tests:
 - Mobile
 - Tablet
 - Desktop
-
-**IMPORTANT**: You must provide screenshots of the tested responsiveness, to "prove" that you've actually tested them.
-
-Using the "amiresponsive" mockup image (or similar) does not suffice the requirements.
-Consider using some of the built-in device sizes in the Developer Tools.
-
-If you have tested the project on your actual mobile phone or tablet, consider also including screenshots of these as well.
-It showcases a higher level of manual tests, and can be seen as a positive inclusion!
-
-Sample responsiveness testing documentation:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 I've tested my deployed project on multiple devices to check for responsiveness issues.
 
@@ -138,62 +122,71 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 ## Lighthouse Audit
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
+The following pages were tested for performance using the lighthouse test tool in Chrome 
 
-Use this space to discuss testing the live/deployed site's Lighthouse Audit reports.
-Avoid testing the local version (especially if developing in Gitpod), as this can have knock-on effects of performance.
+ - Home page
+ - Add page
+ - Edit page
+ - Profile page
+ - Categroies 
 
-If you don't have Lighthouse in your Developer Tools,
-it can be added as an [extension](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk).
+Any warning or errors noted were investigated below. 
 
-Don't just test the home page (unless it's a single-page application).
-Make sure to test the Lighthouse Audit results for all of your pages.
+### Home page
+Although the performance was 100%, the warnings received on this page were all related to the frameworks and fetures used, in partcular they were 
+ - Leaflet
+ - Materize CSS
+ - heroku 
 
-**IMPORTANT**: You must provide screenshots of the results, to "prove" that you've actually tested them.
+### Add page
+Although the performance was 99%, The warnings received on this page (hence 78% best practice) were all related to the frameworks and fetures used, in partcular they were 
+ - Leaflet
+ - Materize CSS
+ - heroku 
 
-Sample Lighthouse testing documentation:
+ ### Edit page
+Although the performance was 99%, The warnings received on this page (hence 78% best practice) were all related to the frameworks and fetures used, in partcular they were 
+ - Leaflet
+ - Materize CSS
+ - heroku 
+ - Esri ArcGIS
+ 
+### Profile page
+Although the performance was 99%, the warnings received on this page were all related to the frameworks and fetures used, in partcular they were 
+ - Leaflet
+ - Materize CSS
+ - heroku  
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+### Categories page
+Both performance and Best practice were close to or were 100%, And there some warnings received on this page. These were all related to the frameworks and fetures used, in partcular they were 
+ - Leaflet
+ - Materize CSS
+ - heroku 
 
+### Lighthouse Testing Results 
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
 
-| Page | Mobile | Desktop | Notes |
-| --- | --- | --- | --- |
-| Home | ![screenshot](documentation/lighthouse/lighthouse-home-mobile.png) | ![screenshot](documentation/lighthouse/lighthouse-home-desktop.png) | Some minor warnings |
-| About | ![screenshot](documentation/lighthouse/lighthouse-about-mobile.png) | ![screenshot](documentation/lighthouse/lighthouse-about-desktop.png) | Some minor warnings |
-| Gallery | ![screenshot](documentation/lighthouse/lighthouse-gallery-mobile.png) | ![screenshot](documentation/lighthouse/lighthouse-gallery-desktop.png) | Slow response time due to large images |
-| x | x | x | repeat for any other tested pages/sizes |
+| Page | Desktop | Notes |
+| --- | --- | --- |
+| Home | ![screenshot](documentation/lh/tasks.png) | Some minor warnings |
+| Profile |![screenshot](documentation/lh/profile.png) | Some minor warnings |
+| Add | ![screenshot](documentation/lh/add.png)  | Some minor warnings  |
+| Add | ![screenshot](documentation/lh/edit.png)  | Some minor warnings  |
+| Categories | ![screenshot](documentation/lh/cats.png) | Some minor warnings  |
+
 
 ## Defensive Programming
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Defensive programming (defensive design) is extremely important!
-
-When building projects that accept user inputs or forms, you should always test the level of security for each.
-Examples of this could include (not limited to):
-
-Forms:
-- Users cannot submit an empty form
-- Users must enter valid email addresses
-
-PP3 (Python-only):
-- Users must enter a valid letter/word/string when prompted
-- Users must choose from a specific list only
-
-MS3 (Flask) | MS4/PP4/PP5 (Django):
+I tested the following elelments in my defensive testing 
+- Users cannot submit an empty form 
+- User must enter valid Names and passwords
+    - In particualr that there passwords are correct eg by asking for the psssword to be entered twice
+- Users must enter a valid letter/word/string when prompted for both fields and names and passwords
 - Users cannot brute-force a URL to navigate to a restricted page
 - Users cannot perform CRUD functionality while logged-out
 - User-A should not be able to manipulate data belonging to User-B, or vice versa
 - Non-Authenticated users should not be able to access pages that require authentication
 - Standard users should not be able to access pages intended for superusers
-
-You'll want to test all functionality on your application, whether it's a standard form,
-or uses CRUD functionality for data manipulation on a database.
-Make sure to include the `required` attribute on any form-fields that should be mandatory.
-Try to access various pages on your site as different user types (User-A, User-B, guest user, admin, superuser).
-
-You should include any manual tests performed, and the expected results/outcome.
 
 Defensive programming was manually tested with the below user acceptance testing:
 
@@ -223,72 +216,66 @@ Add and Edit pages  | | | | | |
 
 ## User Story Testing
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Testing user stories is actually quite simple, once you've already got the stories defined on your README.
-
-Most of your project's **features** should already align with the **user stories**,
-so this should as simple as creating a table with the user story, matching with the re-used screenshot
-from the respective feature.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+I tested the following user features on the site, these test were derived from the README.md, from the User stories. As alot of the User stories for mew and returning user were the same where plaicable i had combined the test for these.
 
 | User Story | Screenshot |
 | --- | --- |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature01.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature02.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature03.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature04.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature05.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature06.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature07.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature08.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature09.png) |
-| repeat for all remaining user stories | x |
+| As a new site user, I would like to register on the site, so that I am known by the site and my entries are recorded to me.| ![screenshot](documentation/feats/pw-reg.png) |
+| As a new or returning site user, I would like to record new fishing sessions, which i created. | ![screenshot](documentation/feats/test-add.png) |
+|  As a new or returning site user, I would like to be able to see all entries I have created or that other have created (public).  | ![screenshot](documentation/feats/test-view.png) |
+| As a new or returning site user, I would like to record the following elements in the site, Venue name, Conditions and water temp, The fish caught and with which flies, Notes section record my comments and also add links to any Images. | ![screenshot](documentation/feats/test-add.png) |
+| As a returning site user, I would like to edit records i have created, edit the following elements in the site, Venue name, Conditions and water temp, The fish caught and with which flies, Notes section record my comments and also add links to any Images. | ![screenshot](documentation/feats/test-edit.png) |
+| Additionally as a new or returning site user, I would like to record (and also EDIT) rating of the session, good, average, bad, and then show this rating in my overall list of entries. | ![screenshot](documentation/feats/tooltip.png) |
+| Additionally as a new or returning site user, I would like to record (and also EDIT) Link to a geo location so I can show where this venue is. | ![screenshot](documentation/feats/geloc.png) |
+| As a new or returning site user, I would like to be able to search all avaialble records | ![screenshot](documentation/feats/test-view.png) |
+| As a site administrator, I should be able to change the location types for fishing , so that I can add edit or delete details. | ![screenshot](documentation/feats/test-cat.png) |
+| As a site administrator, I should be given access to these superuser as an administrator, e.g. they’re not globally available to all. | ![screenshot](documentation/feats/test-superuser.png) |
+| As a site administrator, I should be able to perform all the create, edit update and delete function taht both new ansd retunring site users can do.. | ![screenshot](documentation/feats/test-edit.png) |
 
 ## Bugs
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
+The following bugs and problems were encountetred when I was building this site, I have documented the issues which I needed to resove with assitance or were more serious, I had numerous smaller typogrpahical or similar issues Which were resolved reasonable quickly and so i did not document these.   
 
-This section is primarily used for JavaScript and Python applications,
-but feel free to use this section to document any HTML/CSS bugs you might run into.
+### Materliaze CSS V1 and V2
 
-It's very important to document any bugs you've discovered while developing the project.
-Make sure to include any necessary steps you've implemented to fix the bug(s) as well.
+On intial build of the site i was advised by my mentor to consider moving to Materlize Version 2.0 as there were some know issue/bugs in Materliaze version 1. 
+Upon doing this I encountered many problesm with CSS formatting and after further investigation and consultation that Materlize V2 is not very stable, and for this reason I chose to revert back to V1. Hwever this did not come without issues as I than started to encounter issues in V1 although these were not severe. 
 
-**PRO TIP**: screenshots of bugs are extremely helpful, and go a long way!
+### Python Errors 
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+#### **Python - setting super user** 
 
-- JS Uncaught ReferenceError: `foobar` is undefined/not defined
+###### Adding the is_superuser user check 
+On intially implementing the add is_super feature user check a descripency was noticed (mongDB stores true and false "true" and "false" where as pyhtons expect "True" and False" for boolean) and after some testing I switched the value is_superuser to boolean. Then re-wrote the various test in both Base.html and app.py to refelct this in its determination of the user as a superuser. Making sure I only used the string method only where needed.
 
-    ![screenshot](documentation/bugs/bug01.png)
+##### Further Issues with is_superuser
+As part of the implementation the is_superuser i had to change after some base testing i needed to change the logout of the user, as the then method only removed the sinle session cookie for the user, I than had to change to clear all cookies for the user on logout. This also required to alter the execution of the Flash message as well to after the clear session to amke this work correctly.  
 
-    - To fix this, I _____________________.
+##### Regression Testing for setting is_superuser 
+Upon regression testing of the above fix (and this is mentioined in the testing) it was found that register user failed, and reported the is_superuser with the error "key is_superuser was not defined". This was evetaully traced to not creating the seession key for is_superuser when registering the user. 
 
-- JS `'let'` or `'const'` or `'template literal syntax'` or `'arrow function syntax (=>)'` is available in ES6 (use `'esversion: 11'`) or Mozilla JS extensions (use moz).
+|  |  |
+| --- | --- |
+ This was rectified by adding the 'session["is_superuser"] = False' at line 82 of the app.py file in the register function.  |![screenshot](documentation/def/success-reg.png) |
 
-    ![screenshot](documentation/bugs/bug02.png)
 
-    - To fix this, I _____________________.
+#### **Python Lint errors**
 
-- Python `'ModuleNotFoundError'` when trying to import module from imported package
+| Error description | Screenshot |
+| --- | --- |
+| Upon running the python lint I was getting the following errors Which I tried different ways of fixing |![screenshot](documentation/bugs/python-lint.png)|
+| I was eventually steered to correct the errors in the following way | ![screenshot](documentation/bugs/fix-python-lint.png)|
 
-    ![screenshot](documentation/bugs/bug03.png)
+### General errors 
 
-    - To fix this, I _____________________.
+- Jinja - uncaught Jinja synatax error 
 
-- Django `TemplateDoesNotExist` at /appname/path appname/template_name.html
-
-    ![screenshot](documentation/bugs/bug04.png)
-
-    - To fix this, I _____________________.
-
-- Python `E501 line too long` (93 > 79 characters)
-
-    ![screenshot](documentation/bugs/bug04.png)
-
-    - To fix this, I _____________________.
+    I encountered a problem where the profile page (and this was the only page showin this issue) was not showing the favicon for the page tab.
+    This issue was due to the fact that the Jinja syntax was not being specified correctly.
+    This was corrected by using the following syntax for the base.html 
+    line 19: https://github.com/Coelecanth/project3-waterBlogged/blob/main/templates/base.html#L19
+    was changed to:
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/fish-fins-solid.svg') }}" type="image/x-icon">
 
 ## Unfixed Bugs
 
